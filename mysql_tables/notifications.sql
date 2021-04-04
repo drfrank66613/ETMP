@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2021 at 03:27 PM
+-- Generation Time: Apr 04, 2021 at 06:10 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -24,20 +24,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `request_form`
+-- Table structure for table `notifications`
 --
 
-CREATE TABLE `request_form` (
-  `form_id` int(11) UNSIGNED NOT NULL,
-  `user_id` int(11) UNSIGNED NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `lname` varchar(255) NOT NULL,
-  `phone` varchar(11) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `city` varchar(255) NOT NULL,
-  `state` varchar(255) NOT NULL,
-  `training_id` int(11) UNSIGNED NOT NULL
+CREATE TABLE `notifications` (
+  `notification_id` int(11) UNSIGNED NOT NULL,
+  `userid` int(11) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `notifications`
+--
+
+INSERT INTO `notifications` (`notification_id`, `userid`, `title`, `content`, `date`) VALUES
+(1, 0, 'Welcome User!', 'Thank you for Registering', '2021-04-04 18:28:10');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
