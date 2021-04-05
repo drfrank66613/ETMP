@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2021 at 03:24 PM
+-- Generation Time: Apr 05, 2021 at 10:02 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -28,11 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `user_information` (
-  `id` int(11) NOT NULL,
-  `first_name` varchar(30) NOT NULL,
-  `last_name` varchar(30) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
+  `username` varchar(30) NOT NULL,
   `email_address` text NOT NULL,
-  `phone_number` int(11) NOT NULL
+  `password` int(12) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -53,7 +52,7 @@ ALTER TABLE `user_information`
 -- AUTO_INCREMENT for table `user_information`
 --
 ALTER TABLE `user_information`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

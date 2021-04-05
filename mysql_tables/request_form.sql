@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2021 at 06:11 PM
+-- Generation Time: Apr 05, 2021 at 10:02 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -38,6 +38,27 @@ CREATE TABLE `request_form` (
   `state` varchar(255) NOT NULL,
   `training_id` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `request_form`
+--
+ALTER TABLE `request_form`
+  ADD PRIMARY KEY (`form_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `request_form`
+--
+ALTER TABLE `request_form`
+  ADD CONSTRAINT `request_form_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_information` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
