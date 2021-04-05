@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2021 at 10:23 AM
+-- Generation Time: Apr 05, 2021 at 08:46 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.27
 
@@ -28,22 +28,24 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `training_workshop` (
-  `training_id` int(10) UNSIGNED NOT NULL,
+  `training_id` int(11) UNSIGNED NOT NULL,
   `training_name` varchar(255) NOT NULL,
-  `training_type` varchar(255) NOT NULL
+  `training_type` varchar(255) NOT NULL,
+  `training_price` int(11) UNSIGNED NOT NULL,
+  `training_details` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `training_workshop`
 --
 
-INSERT INTO `training_workshop` (`training_id`, `training_name`, `training_type`) VALUES
-(1, 'Leadership & Communication 101', 'Leadership & Communication skills'),
-(2, 'Art of Listening\r\n', 'Negotiation skills'),
-(3, 'Master Communication Skills', 'Presentation skills'),
-(4, 'Open Body Language', 'Leadership & Communication skills'),
-(5, 'Effective Verbal Communication', 'Negotiation skills'),
-(6, 'Advanced Negotiation', 'Negotiation skills');
+INSERT INTO `training_workshop` (`training_id`, `training_name`, `training_type`, `training_price`, `training_details`) VALUES
+(1, 'Leadership & Communication 101', 'Leadership & Communication skills', 0, ''),
+(2, 'Art of Listening\r\n', 'Negotiation skills', 0, ''),
+(3, 'Master Communication Skills', 'Presentation skills', 0, ''),
+(4, 'Open Body Language', 'Leadership & Communication skills', 0, ''),
+(5, 'Effective Verbal Communication', 'Negotiation skills', 0, ''),
+(6, 'Advanced Negotiation', 'Negotiation skills', 0, '');
 
 --
 -- Indexes for dumped tables
@@ -63,7 +65,7 @@ ALTER TABLE `training_workshop`
 -- AUTO_INCREMENT for table `training_workshop`
 --
 ALTER TABLE `training_workshop`
-  MODIFY `training_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `training_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
