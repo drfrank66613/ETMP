@@ -12,30 +12,52 @@
     <section>
         <h1>Request Handler System</h1>
 
-        <table class="request-table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Selected Training Type</th>
-                    <th>Status</th>
-                    <th>Date Created</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Abeng</td>
-                    <td>Negotiation skills</td>
-                    <td>Pending</td>
-                    <td>4 April 2021</td>
-                </tr>
-                <tr>
-                    <td>Irwan</td>
-                    <td>Presentation skills</td>
-                    <td>Pending</td>
-                    <td>4 April 2021</td>
-                </tr>
-            </tbody>
-        </table>
+        <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "etmp";
+
+            $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+            if ($conn->connect_errno) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            $sql = "SELECT fname, lname, selected_training_type, request_status, request_date FROM request_form";
+            $result = $conn->query($sql);
+
+            mysqli_num_rows($result);
+            $headers = array("First Name", "Last Name", "Selected Training Type", "Status", "Date Created");
+
+
+            $numOfHeaders = 5;
+
+            if (($result)) {
+                echo "<table class='request-table'> <tr>";
+
+                if (mysqli_num_rows($result) > 0) {
+                    for ($i = 0; $i < $numOfHeaders; $i++) {
+                        echo "<th>" . $headers[$i] . "</th>";
+                    }
+                    echo "</tr>";
+
+                    while ($rows = mysqli_fetch_assoc($result)) {
+                        echo "<tr>";
+                        foreach ($rows as $data) {
+                            echo "<td>" . $data . "</td>";
+                        }
+                        echo "<td><button class='button-training-request'>Manage</button></td>";
+                        echo "</tr>";
+                    }
+                }
+                else {
+                    echo "No Results found!";
+                }
+                echo "</table>";
+            }
+        ?>
+
     </section>
 </body>
 </html>
