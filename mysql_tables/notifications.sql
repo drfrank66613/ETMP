@@ -32,14 +32,14 @@ CREATE TABLE `notifications` (
   `user_id` int(11) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
   `content` varchar(255) NOT NULL,
-  `date` datetime NOT NULL DEFAULT current_timestamp()
+  `date_received` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `notifications`
 --
 
-INSERT INTO `notifications` (`notification_id`, `user_id`, `title`, `content`, `date`) VALUES
+INSERT INTO `notifications` (`notification_id`, `user_id`, `title`, `content`, `date_received`) VALUES
 (1, 1, 'Welcome User!', 'Thank you for Registering', '2021-04-04 18:28:10');
 
 --
