@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2021 at 10:02 AM
+-- Generation Time: Apr 05, 2021 at 12:24 PM
 -- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- PHP Version: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,12 +32,21 @@ CREATE TABLE `request_form` (
   `user_id` int(11) UNSIGNED NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
+  `request_status` varchar(255) NOT NULL DEFAULT 'Pending',
+  `request_date` datetime NOT NULL DEFAULT current_timestamp(),
   `phone` varchar(11) NOT NULL,
   `address` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL,
   `state` varchar(255) NOT NULL,
   `training_id` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `request_form`
+--
+
+INSERT INTO `request_form` (`form_id`, `user_id`, `fname`, `lname`, `request_status`, `request_date`, `phone`, `address`, `city`, `state`, `training_id`) VALUES
+(1, 1, 'Tensan', 'Fani', 'Pending', '2021-04-05 13:55:59', '01230123', 'asfdfasdfas', 'asfasdf', 'sadfsadasdf', 1);
 
 --
 -- Indexes for dumped tables
@@ -48,7 +57,18 @@ CREATE TABLE `request_form` (
 --
 ALTER TABLE `request_form`
   ADD PRIMARY KEY (`form_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `fk_id_user` (`user_id`),
+  ADD KEY `fk_training_id` (`training_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `request_form`
+--
+ALTER TABLE `request_form`
+  MODIFY `form_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -58,7 +78,8 @@ ALTER TABLE `request_form`
 -- Constraints for table `request_form`
 --
 ALTER TABLE `request_form`
-  ADD CONSTRAINT `request_form_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user_information` (`id`);
+  ADD CONSTRAINT `fk_id_user` FOREIGN KEY (`user_id`) REFERENCES `user_information` (`id`),
+  ADD CONSTRAINT `fk_training_id` FOREIGN KEY (`training_id`) REFERENCES `training_workshop` (`training_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
