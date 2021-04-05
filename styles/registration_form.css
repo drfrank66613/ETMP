@@ -2,8 +2,61 @@
   box-sizing: border-box;
 }
 
+.title {
+  margin: 40px 0;
+  text-align: center;
+  color: #00a2ff;
+}
+
+p {
+  color: black;
+}
+
+a:link {
+  color: #00a2ff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #00a2ff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff5d00;
+  text-decoration: none;
+}
+
+a:active {
+  color: #ff5d00;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+#bigTxt {
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  font-size: 20px;
+}
+
+#smallTxt {
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  font-size: 20px;
+}
+
 form {
-  margin: 0 500px;
+  width: 50%;
+  margin: 0 auto;
+  color: #00a2ff;
+}
+
+label {
+  color: black;
 }
 
 input[type="text"],
