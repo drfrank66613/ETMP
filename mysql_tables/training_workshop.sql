@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2021 at 08:46 AM
+-- Generation Time: Apr 05, 2021 at 01:48 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.27
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `training_workshop` (
   `training_id` int(11) UNSIGNED NOT NULL,
+  `training_type_id` int(11) UNSIGNED NOT NULL,
   `training_name` varchar(255) NOT NULL,
-  `training_type` varchar(255) NOT NULL,
   `training_price` int(11) UNSIGNED NOT NULL,
   `training_details` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -39,13 +39,13 @@ CREATE TABLE `training_workshop` (
 -- Dumping data for table `training_workshop`
 --
 
-INSERT INTO `training_workshop` (`training_id`, `training_name`, `training_type`, `training_price`, `training_details`) VALUES
-(1, 'Leadership & Communication 101', 'Leadership & Communication skills', 0, ''),
-(2, 'Art of Listening\r\n', 'Negotiation skills', 0, ''),
-(3, 'Master Communication Skills', 'Presentation skills', 0, ''),
-(4, 'Open Body Language', 'Leadership & Communication skills', 0, ''),
-(5, 'Effective Verbal Communication', 'Negotiation skills', 0, ''),
-(6, 'Advanced Negotiation', 'Negotiation skills', 0, '');
+INSERT INTO `training_workshop` (`training_id`, `training_type_id`, `training_name`, `training_price`, `training_details`) VALUES
+(1, 1, 'Leadership & Communication 101', 0, ''),
+(2, 2, 'Art of Listening\r\n', 0, ''),
+(3, 3, 'Master Communication Skills', 0, ''),
+(4, 1, 'Open Body Language', 0, ''),
+(5, 2, 'Effective Verbal Communication', 0, ''),
+(6, 2, 'Advanced Negotiation', 0, '');
 
 --
 -- Indexes for dumped tables
@@ -55,7 +55,8 @@ INSERT INTO `training_workshop` (`training_id`, `training_name`, `training_type`
 -- Indexes for table `training_workshop`
 --
 ALTER TABLE `training_workshop`
-  ADD PRIMARY KEY (`training_id`);
+  ADD PRIMARY KEY (`training_id`),
+  ADD KEY `fk_id_training_type` (`training_type_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -66,6 +67,16 @@ ALTER TABLE `training_workshop`
 --
 ALTER TABLE `training_workshop`
   MODIFY `training_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `training_workshop`
+--
+ALTER TABLE `training_workshop`
+  ADD CONSTRAINT `fk_id_training_type` FOREIGN KEY (`training_type_id`) REFERENCES `training_type` (`training_type_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
