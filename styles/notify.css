@@ -1,0 +1,35 @@
+
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+.notification_title{
+    margin-left: 25%;
+    color: #00a2ff;
+    margin-top: 2%;
+}
+.notifications_table{
+    text-overflow: ellipsis;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: solid #00a2ff 7px;
+    border-radius: 3px;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    color: black;
+    text-align: left;
+}
+.the_row{
+    background-color: #f2f2f2;
+    border-top: none;
+}
+.contents{
+    font-size: 15px;
+    border-top: none;
+}
+.dates{
+    font-size: 15px;
+    text-align: right;
+    color: #00a2ff;
+}
