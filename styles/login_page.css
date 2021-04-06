@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
 
 .title {
@@ -39,14 +40,14 @@ a:active {
   text-align: center;
   font-weight: bold;
   color: black;
-  font-size: 20px;
+  font-size: 17px;
 }
 
 #smallTxt {
   text-align: center;
   font-weight: bold;
   color: black;
-  font-size: 20px;
+  font-size: 17px;
 }
 
 form {

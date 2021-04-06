@@ -6,6 +6,7 @@
     <meta name="author" content="George Kennedy">
     <meta name="description" content="Registration form page">
     <meta name="keywords" content="training, workshop">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/registration_form.css">
 </head>
 <body>
@@ -14,7 +15,7 @@
     <p id="smallTxt">Sign Up to Request Your Training Workshop Now!</p>
     <form style="border:1px solid #ccc">
         <div class="container">
-          <h1>Sign Up</h1>
+          <h2 >Sign Up</h2>
           <hr>
 
           <label for="username"><b>Username</b></label>
@@ -26,12 +27,12 @@
           <label for="password"><b>Password</b></label>
           <input type="password" placeholder="Enter Your Password" name="password" required>
       
-          <label for="password-repeat"><b>Repeat Password</b></label>
-          <input type="password" placeholder="Repeat Password" name="password-repeat" required>
+          <label for="password-confirm"><b>Confirm Password</b></label>
+          <input type="password" placeholder="Confirm Your Password" name="password-repeat" required>
        
           <button type="submit" class="signupbtn"><b>Sign Up</b></button>
 
-          <button type="button" class="cancelbtn"><b>Cancel</b></button>
+          <button onclick="window.location='login_page.html';" type="button" class="cancelbtn"><b>Cancel</b></button>
           
         </div>
       </form>
