@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Request Page</title>
     <link rel="stylesheet" href="styles/request_handler_system.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -91,7 +91,7 @@
         </table>
 
         <p class="container-send-training-button">
-            <button class="send-training-button">Cancel Request</button>
+            <button class="send-training-button">Send Training</button>
         </p>
     </div>
     

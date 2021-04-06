@@ -3,6 +3,10 @@ body {
     font-size: 100%;
 }
 
+#requests-management-section h1 {
+    margin-left: 1rem;
+}
+
 .request-table {
     width: 99%;
     margin-left: auto;
@@ -55,7 +59,7 @@ body {
 }
 
 
-/*  Request Management Page  */
+/*  Request Page  */
 .search-training-section {
     width: 85%;
     margin: 5% auto;

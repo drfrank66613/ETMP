@@ -7,14 +7,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Requests Handler System Page</title>
     <link rel="stylesheet" href="styles/request_handler_system.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section>
-        <h1>Request Handler System</h1>
+    <section id="requests-management-section">
+        <h1 id="Request-heading">Request Handler System</h1>
         <?php
             $servername = "localhost";
             $username = "root";
