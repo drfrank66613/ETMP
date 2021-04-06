@@ -3,8 +3,12 @@ body {
     font-size: 100%;
 }
 
+h1 {
+    color: #00a2ff;
+}
+
 #requests-management-section h1 {
-    margin-left: 1rem;
+    margin-left: 0.5rem;
 }
 
 .request-table {
