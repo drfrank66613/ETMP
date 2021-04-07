@@ -6,6 +6,9 @@
     <title>Request Page</title>
     <link rel="stylesheet" href="styles/request_handler_system.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 </head>
 <body>
     <div class="request-detail-section">
@@ -25,8 +28,10 @@
                 die("Connection failed: " . $conn->connect_error);
             }
 
+            $training_type;
+
             if (isset($_COOKIE["request_id"])) {
-                $request_id = $_COOKIE["request_id"];
+                $request_id = $_COOKIE["request_id"];   
 
                 $sql = "SELECT * FROM request_form WHERE form_id = $request_id";
                 $result = $conn->query($sql);
@@ -64,9 +69,9 @@
                     $result2 = $conn->query($sql_2);
                     
                     while ($row = mysqli_fetch_assoc($result2)) {
-                        echo "<p>" . $row['training_type_name'] . "</p>";
+                        $training_type = $row['training_type_name'];
+                        echo "<p>" . $training_type . "</p>";
                     }
-                    
                     echo "<hr>";
                 }
             }
@@ -75,9 +80,9 @@
         
     <div class="search-training-section">
         <h1>Search Trainings</h1>
-        <form method="post">
+        <form id="search-form" method="post">
             <label class="label-training-type" for="search">Training Type</label>
-            <input class="training-search-bar" type="text" placeholder="Search..." name="search"/>
+            <input id="search" class="training-search-bar" type="text" placeholder="Search..." name="search"/>
             <button class='search-button' type="submit"><i class="fa fa-search"></i></button>   
         </form>
 
@@ -86,8 +91,31 @@
                 <th>Training Name</th>
                 <th>Training Type</th>
                 <th>Price</th>
+                <th></th>
+
             </tr>
 
+            <?php 
+                $sql_3 = "SELECT tw.training_name, tw.training_price, tt.training_type_name  FROM training_workshop tw
+                INNER JOIN training_type tt ON tt.training_type_id = tw.training_type_id";
+                $result_3 = $conn->query($sql_3);
+                if (mysqli_num_rows($result_3) == 0) {
+                echo "<tr>";
+                echo "<td colspan=3> No Training </td>";
+                echo "</tr>";
+                }
+                else {
+                while ($row = mysqli_fetch_assoc($result_3)) {
+                    echo "<tr>";
+                    echo "<td>" . $row["training_name"] . "</td>";
+                    echo "<td>" . $row["training_type_name"] . "</td>";
+                    echo "<td>" . "RM " . $row["training_price"] . "</td>";
+                    echo "<td class='checkbox-row'><input type='checkbox' name='training' value='" . $row["training_name"]  . "'/>" . "</td>";
+                    
+                    echo "</tr>";
+                    }
+                }
+            ?>
         </table>
 
         <p class="container-send-training-button">
@@ -95,10 +123,16 @@
         </p>
     </div>
     
-    
-
-    <script>
-        var p = document.getElementById("test");
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#search-form").bind('submit',function() {
+          var value = $('#search').val();
+           $.post('search_training.php',{value:value}, function(data){
+             $(".search-training-table").html(data);
+           });
+           return false;
+        });     
+      })
     </script>
 </body>
 </html>
