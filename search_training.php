@@ -68,7 +68,7 @@
                 echo "<td>" . $row["training_name"] . "</td>";
                 echo "<td>" . $row["training_type_name"] . "</td>";
                 echo "<td>" . "RM " . $row["training_price"] . "</td>";
-                echo "<td class='checkbox-row'><input type='checkbox' name='training' value='" . $row["training_name"]  . "'/>" . "</td>";
+                echo "<td class='checkbox-row'><input type='checkbox' name='training' value='" . $row["training_name"] . "," .  $row["training_type_name"] . "'/>" . "</td>";
                 
                 echo "</tr>";
             }
