@@ -201,6 +201,7 @@
                 $(".confirm-button").on("click", function() {
                     $.post("cancel_requests_as_operator.php", {training_type: type, user: user_id});
                     cancelModal.toggleClass("show-modal");
+                   
                 });
             });
 

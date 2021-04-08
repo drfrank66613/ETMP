@@ -1,7 +1,3 @@
-<?php
-    session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +23,7 @@
                 die("Connection failed: " . $conn->connect_error);
             }
 
-            $sql = "SELECT * FROM request_form";
+            $sql = "SELECT * FROM request_form WHERE request_status='Pending'";
             $result = $conn->query($sql);
 
             mysqli_num_rows($result);
