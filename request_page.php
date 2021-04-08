@@ -28,6 +28,8 @@
                 die("Connection failed: " . $conn->connect_error);
             }
 
+            $user;
+
             $training_type;
 
             if (isset($_COOKIE["request_id"])) {
@@ -37,6 +39,8 @@
                 $result = $conn->query($sql);
 
                 while($row = mysqli_fetch_assoc($result)) {
+                    $user = $row["user_id"];
+
                     echo "<h5>" . "First Name" . "</h5>";
                     echo "<p>"  . $row["fname"] . "</p>";
                     echo "<hr>";
@@ -94,9 +98,9 @@
                 <th></th>
 
             </tr>
-
+            
             <?php 
-                $sql_3 = "SELECT tw.training_name, tw.training_price, tt.training_type_name  FROM training_workshop tw
+                $sql_3 = "SELECT tw.training_name, tw.training_price, tt.training_type_name FROM training_workshop tw
                 INNER JOIN training_type tt ON tt.training_type_id = tw.training_type_id";
                 $result_3 = $conn->query($sql_3);
                 if (mysqli_num_rows($result_3) == 0) {
@@ -110,7 +114,7 @@
                     echo "<td>" . $row["training_name"] . "</td>";
                     echo "<td>" . $row["training_type_name"] . "</td>";
                     echo "<td>" . "RM " . $row["training_price"] . "</td>";
-                    echo "<td class='checkbox-row'><input type='checkbox' name='training' value='" . $row["training_name"]  . "'/>" . "</td>";
+                    echo "<td class='checkbox-row'><input type='checkbox' name='training' value='" . $row["training_name"] . "," .  $row["training_type_name"] . "'/>" . "</td>";
                     
                     echo "</tr>";
                     }
@@ -122,8 +126,21 @@
             <button class="send-training-button">Send Training</button>
         </p>
     </div>
+
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <h3></h3>
+        </div>
+    </div>
     
     <script type="text/javascript">
+        var user_id = "<?php echo $user?>"
+        var training_type = "<?php echo $training_type?>";
+
+        var modal = $(".modal");
+        var closeButton = $(".close-button");
+    
       $(document).ready(function() {
         $("#search-form").bind('submit',function() {
           var value = $('#search').val();
@@ -132,7 +149,36 @@
            });
            return false;
         });     
-      })
+
+        $(function() {
+            $('.send-training-button').on("click", function() {
+                var checkboxValues = [];
+                var training_types = [];
+
+                $("input[type='checkbox']:checked").each(function(index, elem){
+                    //checkboxValues.push($(elem).val());
+                    var temp = $(elem).val().split(",");
+                    
+                    checkboxValues.push(temp[0]);
+                    training_types.push(temp[1]);
+                }); 
+
+                $.post("send_training_to_client.php", {training_name: checkboxValues, user: user_id, training_type: training_types}, function(data) {
+                    if (data) {
+                        $(".modal-content h3").html(data);
+                    }
+                });
+                
+                modal.toggleClass("show-modal");                
+            });   
+            
+            $(".close-button").on("click", function() {
+                modal.toggleClass("show-modal");
+            });
+        });
+
+      })    
+    
     </script>
 </body>
 </html>
