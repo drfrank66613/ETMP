@@ -167,9 +167,10 @@
                     var training_types = [];
 
                     $("input[type='checkbox']:checked").each(function(index, elem){
-                        //checkboxValues.push($(elem).val());
                         var temp = $(elem).val().split(",");
-                        
+                        console.log(temp[0]);
+                        console.log(temp[1]);
+
                         checkboxValues.push(temp[0]);
                         training_types.push(temp[1]);
                     }); 
@@ -177,10 +178,9 @@
                     $.post("send_training_to_client.php", {training_name: checkboxValues, user: user_id, training_type: training_types}, function(data) {
                         if (data) {
                             $(".send-modal h3").html(data);
+                            sendModal.toggleClass("show-modal");
                         }
-                    });
-                    
-                    sendModal.toggleClass("show-modal");                
+                    });                
                 });   
                 
                 $(".send-close-button").on("click", function() {
