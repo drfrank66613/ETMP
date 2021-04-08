@@ -126,11 +126,22 @@
             <button class="send-training-button">Send Training</button>
         </p>
     </div>
-
-    <div class="modal">
+    
+    <!-- Sending Training to client Modal Box -->
+    <div class="send-modal">
         <div class="modal-content">
-            <span class="close-button">×</span>
+            <span class="send-close-button">×</span>
             <h3></h3>
+        </div>
+    </div>
+
+
+    <!-- Cancel request as operator Modal Box -->
+    <div class="cancel-modal">
+        <div class="modal-content">
+            <span class="cancel-close-button">×</span>
+            <h3>Are you sure cancel this request?</h3>
+            <button class="confirm-button">Confirm</button>
         </div>
     </div>
     
@@ -138,46 +149,62 @@
         var user_id = "<?php echo $user?>"
         var training_type = "<?php echo $training_type?>";
 
-        var modal = $(".modal");
-        var closeButton = $(".close-button");
-    
-      $(document).ready(function() {
-        $("#search-form").bind('submit',function() {
-          var value = $('#search').val();
-           $.post('search_training.php',{value:value}, function(data){
-             $(".search-training-table").html(data);
-           });
-           return false;
-        });     
+        var sendModal = $(".send-modal");
+        var cancelModal = $(".cancel-modal");
 
-        $(function() {
-            $('.send-training-button').on("click", function() {
-                var checkboxValues = [];
-                var training_types = [];
-
-                $("input[type='checkbox']:checked").each(function(index, elem){
-                    //checkboxValues.push($(elem).val());
-                    var temp = $(elem).val().split(",");
-                    
-                    checkboxValues.push(temp[0]);
-                    training_types.push(temp[1]);
-                }); 
-
-                $.post("send_training_to_client.php", {training_name: checkboxValues, user: user_id, training_type: training_types}, function(data) {
-                    if (data) {
-                        $(".modal-content h3").html(data);
-                    }
-                });
-                
-                modal.toggleClass("show-modal");                
-            });   
-            
-            $(".close-button").on("click", function() {
-                modal.toggleClass("show-modal");
+        $(document).ready(function() {
+            $("#search-form").bind('submit',function() {
+            var value = $('#search').val();
+            $.post('search_training.php',{value:value}, function(data){
+                $(".search-training-table").html(data);
             });
-        });
+            return false;
+            });     
 
-      })    
+            $(function() {
+                $('.send-training-button').on("click", function() {
+                    var checkboxValues = [];
+                    var training_types = [];
+
+                    $("input[type='checkbox']:checked").each(function(index, elem){
+                        //checkboxValues.push($(elem).val());
+                        var temp = $(elem).val().split(",");
+                        
+                        checkboxValues.push(temp[0]);
+                        training_types.push(temp[1]);
+                    }); 
+
+                    $.post("send_training_to_client.php", {training_name: checkboxValues, user: user_id, training_type: training_types}, function(data) {
+                        if (data) {
+                            $(".send-modal h3").html(data);
+                        }
+                    });
+                    
+                    sendModal.toggleClass("show-modal");                
+                });   
+                
+                $(".send-close-button").on("click", function() {
+                    sendModal.toggleClass("show-modal");
+                });
+            });
+
+            $(function() {
+                var type = "<?php echo $training_type ?>"
+                $(".cancel-button").on("click", function() {
+                    cancelModal.toggleClass("show-modal");
+                });
+
+                $(".cancel-close-button").on("click", function() {
+                    cancelModal.toggleClass("show-modal");
+                });
+
+                $(".confirm-button").on("click", function() {
+                    $.post("cancel_requests_as_operator.php", {training_type: type, user: user_id});
+                    cancelModal.toggleClass("show-modal");
+                });
+            });
+
+        })    
     
     </script>
 </body>

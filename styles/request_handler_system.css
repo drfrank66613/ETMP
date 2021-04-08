@@ -189,8 +189,10 @@ h1 {
 }
 
 
-/* Modal Box Section */
-.modal {
+/*** MODAL BOX SECTION ***/
+
+/* Send Training Workshops to client Modal Box */
+.send-modal {
     position: fixed;
     left: 0;
     top: 0;
@@ -202,6 +204,7 @@ h1 {
     transform: scale(1.1);
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
+
 .modal-content {
     position: absolute;
     top: 50%;
@@ -212,17 +215,63 @@ h1 {
     width: 24rem;
     border-radius : 0.5rem;
 }
-.close-button {
+
+.send-close-button {
     float: right;
-    width: 1.5rem;
-    line-height: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #696969;
+}
+.send-close-button:hover {
+    color: white;
+}
+
+.modal-content h3 {
+    color:white;
+    padding-top: 1rem;
+}
+
+
+/* Cancel Training Workshops request as operator Modal Box */
+.cancel-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.cancel-close-button {
+    float: right;
+    text-align: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #696969;
+}
+.cancel-close-button:hover {
+    color: white;
+}
+
+.confirm-button {
+    float: right;
+    padding: 0.5rem 1rem;
     text-align: center;
     cursor: pointer;
     border-radius: 0.25rem;
-    background-color: lightgray;
+    background-color: red;
+    border: 1px solid red;
+    color: white;
 }
-.close-button:hover {
-    background-color: darkgray;
+
+.confirm-button:hover {
+    background-color: white;
+    color: black;
 }
 
 .show-modal {
@@ -231,9 +280,3 @@ h1 {
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
-
-.modal-content h3 {
-    color:white;
-}
-
-

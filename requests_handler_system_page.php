@@ -75,6 +75,6 @@
         ?>
 
     </section>    
-    <script src="scripts/requestHandler.js"></script>
+    <script src="scripts/requestHandlerSystem.js"></script>
 </body>
 </html>
