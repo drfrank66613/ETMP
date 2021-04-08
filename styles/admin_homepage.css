@@ -3,6 +3,10 @@
 }
 
 /*Use styles below for the navbar*/
+body {
+  margin: 0;
+}
+
 .title {
   position: relative;
   margin: 15px 15px;

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2021 at 01:48 PM
+-- Generation Time: Apr 08, 2021 at 06:47 AM
 -- Server version: 10.4.18-MariaDB
--- PHP Version: 7.3.27
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,14 +29,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `training_type` (
   `training_type_id` int(11) UNSIGNED NOT NULL,
-  `training_type` varchar(255) NOT NULL
+  `training_type_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `training_type`
 --
 
-INSERT INTO `training_type` (`training_type_id`, `training_type`) VALUES
+INSERT INTO `training_type` (`training_type_id`, `training_type_name`) VALUES
 (1, 'Leadership & Communication skills'),
 (2, 'Negotiation skills'),
 (3, 'Presentation skills');

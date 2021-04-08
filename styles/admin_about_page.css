@@ -111,7 +111,7 @@ body {
 /*End of styles for navbar*/
 
 .hero-image {
-  background-image: url("../images/workshop-img.jpg");
+  background-image: url("../images/about-picture.jpg");
   height: 620px;
   background-position: center;
   background-repeat: no-repeat;
@@ -126,42 +126,29 @@ body {
   right: 0px;
   bottom: 0px;
   left: 0px;
-  opacity: 0.75;
+  opacity: 0.8;
   background-color: black;
 }
 
 .hero-text {
   text-align: center;
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
 }
 
-button {
-  background-color: transparent;
-  color: white !important;
-  padding: 15px 20px;
-  margin: 8px 5px;
-  border-style: solid;
-  cursor: pointer;
-  opacity: 0.9;
+.lefttxt,
+.righttxt {
+  float: left;
+  width: 50%;
+  text-align: justify;
 }
 
-button:hover {
-  border-color: #ff9a00;
-}
-
-#longtxt {
-  font-size: 23px;
-  font-style: italic;
-}
-
-.container {
-  margin-top: 50px;
-}
-
-.container p {
-  font-size: 20px;
+.lefttxt p,
+.righttxt p {
+  padding: 0 10px;
+  margin: 30px 0;
+  font-size: 17px;
 }
