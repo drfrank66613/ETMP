@@ -17,7 +17,7 @@
         <h4 class="appdesc">ONE OF THE LARGEST TRAINING PROVIDER IN SARAWAK</h4>
     </div>
     <div class="navbar">
-        <a class="active" href="client_homepage.html">Home</a>
+        <a href="client_homepage.html">Home</a>
         <a href="#news">My Training</a>
         <a href="client_about_page.html">About</a>
         <div class="rightnavbar">
@@ -57,7 +57,7 @@
 
           <input type="text" class="form_control" placeholder="City" name="city" required>
 
-           <select name="state" class="form_control">
+           <select name="state" class="form_control" required>
             <option value="" disabled selected>State</option>
             <option value="Johor">Johor</option>
             <option value="Kedah">Kedah</option>
@@ -83,24 +83,34 @@
          <legend>Training Details</legend>
          <hr>
           <div class="form_group">
-            <select class="form_control" name="training_type">
+            <select class="form_control" name="training_type" required>
+                <option value="" disabled selected>Training Course</option>
                 <option value="">Leadership &#38; Communication 101</option>
                 <option value="">Negotiation Skills</option>
                 <option value="">Presentation Skills</option>
             </select>
 
-
-            <select class="form_control" name="training_venue">
+            <select class="form_control" name="training_venue" required>
+                <option value="" disabled selected>Venue</option>
                 <option value="">Kuching Branch</option>
                 <option value="">Miri Branch</option>
                 <option value="">Sibu Branch</option>
             </select>
           </div>
+
           <div class="form_group">
-          <input type="date" class="form_control" name="date">
-          <input type="time" class="form_control" step ="3600" name="time">
+          <input type="date" class="form_control" name="date" required>
+          <input type="time" class="form_control" name="time" min="8:00" max="17:00" required>
           </div>
        </fieldset>
+
+       <fieldset class="form_submit">
+          <div class="form_group">
+            <button type="submit" class="button_submit" value="Submit" action="">Submit</button>
+            <button onclick="window.location='client_homepage.html';" type="button" class="button_cancel">Cancel</button>
+          </div>
+       </fieldset>
+
       </form>
       </div>
   </body>
