@@ -2,14 +2,35 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="styles/training_request_form.css">
+    <script src="scipts/request_form.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Training Request Form</title>
   </head>
 
   <body>
+    <div class="title">
+        <h1 class="appname">Expert Training Managament Portal</h1>
+        <h4 class="appdesc">ONE OF THE LARGEST TRAINING PROVIDER IN SARAWAK</h4>
+    </div>
+    <div class="navbar">
+        <a class="active" href="client_homepage.html">Home</a>
+        <a href="#news">My Training</a>
+        <a href="client_about_page.html">About</a>
+        <div class="rightnavbar">
+            <a class="notif" href="#notification"><i class="fa fa-bell"></i></a>
+            <div class="dropdown">
+                <button class="profile">Welcome, User<i class="fa fa-sort-down" ></i></button>
+                <div class="dropdown-content">
+                  <a href="#">Edit Profile</a>
+                  <a href="#">Log Out</a>
+                </div>
+              </div>
+        </div>
+    </div>
 
     <h1 class="form_title">Training Request Form</h1>
 
@@ -36,7 +57,7 @@
 
           <input type="text" class="form_control" placeholder="City" name="city" required>
 
-           <select name="state" class="form_group">
+           <select name="state" class="form_control">
             <option value="" disabled selected>State</option>
             <option value="Johor">Johor</option>
             <option value="Kedah">Kedah</option>
@@ -61,31 +82,23 @@
        <fieldset>
          <legend>Training Details</legend>
          <hr>
-          <div class="training_select">
-           <label for="training_type"><b>Training Workshop</b></label>
-            <select id="training_type" name="training-type">
-              <optgroup label="Type 1">
-                <option value="">Leadership & Communication 101</option>
-                <option value="">Open Body Language</option>
-              </optgroup>
-              <optgroup label="Type 2">
-                <option value="">Advanced Negotiation</option>
-                <option value="">Art of Listening</option>
-                <option value="">Effective Verbal Communication</option>
-              </optgroup>
-              <optgroup label="Type 3">
-                <option value="">Master Communication Skills</option>
-              </optgroup>
+          <div class="form_group">
+            <select class="form_control" name="training_type">
+                <option value="">Leadership &#38; Communication 101</option>
+                <option value="">Negotiation Skills</option>
+                <option value="">Presentation Skills</option>
+            </select>
+
+
+            <select class="form_control" name="training_venue">
+                <option value="">Kuching Branch</option>
+                <option value="">Miri Branch</option>
+                <option value="">Sibu Branch</option>
             </select>
           </div>
-
-          <div class="training_venue">
-            <label for="venue1"><b>Johor Branch</b></label>
-            <input type="radio" id="venue1" name="venue_radio" value="1" checked>
-            <label for="venue2"><b>Sarawak Branch</b></label>
-            <input type="radio" id="venue2" name="venue_radio" value="2">
-            <label for="venue3"><b>Sabah Branch</b></label>
-            <input type="radio" id="venue3" name="venue_radio" value="3">
+          <div class="form_group">
+          <input type="date" class="form_control" name="date">
+          <input type="time" class="form_control" step ="3600" name="time">
           </div>
        </fieldset>
       </form>
