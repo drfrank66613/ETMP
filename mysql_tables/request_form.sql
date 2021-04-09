@@ -36,6 +36,7 @@ CREATE TABLE `request_form` (
   `request_status` varchar(255) NOT NULL DEFAULT 'Pending',
   `request_date` datetime NOT NULL DEFAULT current_timestamp(),
   `phone` varchar(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL,
   `state` varchar(255) NOT NULL
@@ -45,8 +46,8 @@ CREATE TABLE `request_form` (
 -- Dumping data for table `request_form`
 --
 
-INSERT INTO `request_form` (`form_id`, `user_id`, `training_type_id`, `fname`, `lname`, `request_status`, `request_date`, `phone`, `address`, `city`, `state`) VALUES
-(1, 1, 1, 'Tensan', 'Fani', 'Pending', '2021-04-05 13:55:59', '01230123', 'asfdfasdfas', 'asfasdf', 'sadfsadasdf');
+INSERT INTO `request_form` (`form_id`, `user_id`, `training_type_id`, `fname`, `lname`, `request_status`, `request_date`, `phone`, `email`, `address`, `city`, `state`) VALUES
+(1, 1, 1, 'Tensan', 'Fani', 'Pending', '2021-04-05 13:55:59', '01230123', 'customer@email.com', 'asfdfasdfas', 'asfasdf', 'sadfsadasdf');
 
 --
 -- Indexes for dumped tables
