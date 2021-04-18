@@ -35,7 +35,11 @@
     <table class="notifications_table">
 
       <?php
-      $conn = mysqli_connect("localhost", "root", "", "etmp");
+      $host = "localhost";
+      $dbUsername = "root";
+      $dbPassword = "";
+      $dbname = "etmp"
+      $conn = mysqli_connect("$host", "$dbUsername", "$dbPassword", "$dbname");
       if ($conn->connect_error) {
         die("Connection failed:". $conn->connect_error);
       }

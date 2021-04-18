@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2021 at 01:46 PM
+-- Generation Time: Apr 18, 2021 at 03:40 PM
 -- Server version: 10.4.18-MariaDB
--- PHP Version: 7.3.27
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,15 +39,19 @@ CREATE TABLE `request_form` (
   `email` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL,
-  `state` varchar(255) NOT NULL
+  `state` varchar(255) NOT NULL,
+  `training_type` varchar(40) NOT NULL,
+  `training_venue` varchar(20) NOT NULL,
+  `training_date` varchar(20) NOT NULL,
+  `training_time` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `request_form`
 --
 
-INSERT INTO `request_form` (`form_id`, `user_id`, `training_type_id`, `fname`, `lname`, `request_status`, `request_date`, `phone`, `email`, `address`, `city`, `state`) VALUES
-(1, 1, 1, 'Tensan', 'Fani', 'Pending', '2021-04-05 13:55:59', '01230123', 'customer@email.com', 'asfdfasdfas', 'asfasdf', 'sadfsadasdf');
+INSERT INTO `request_form` (`form_id`, `user_id`, `training_type_id`, `fname`, `lname`, `request_status`, `request_date`, `phone`, `email`, `address`, `city`, `state`, `training_type`, `training_venue`, `training_date`, `training_time`) VALUES
+(1, 1, 1, 'Tensan', 'Fani', 'Pending', '2021-04-05 13:55:59', '01230123', 'customer@email.com', 'asfdfasdfas', 'asfasdf', 'sadfsadasdf', 'Leadership &#38; Communic', 'Sibu Branch', '12/03/2021', '2:30 PM');
 
 --
 -- Indexes for dumped tables
