@@ -11,6 +11,27 @@
 
 </head>
 <body>
+    <!--Use the title & navbar bar for all pages-->
+    <div class="title">
+        <img src="images/etmp_logo.png" alt="logo" style="margin-top: 1rem;">
+        <h4 class="appdesc">ONE OF THE LARGEST TRAINING PROVIDER IN SARAWAK</h4>
+    </div>
+    <div class="navbar">
+        <a class="active" href="admin_homepage.html">Request Handler</a>
+        <a href="admin_about_page.html">About</a>
+        <div class="rightnavbar">
+            <a class="notif" href="#notification"><i class="fa fa-bell"></i></a>
+            <div class="dropdown">
+                <button class="profile">Welcome, Admin<i class="fa fa-sort-down" ></i></button>
+                <div class="dropdown-content">
+                  <a href="#">Edit Profile</a>
+                  <a href="#">Log Out</a>
+                </div>
+              </div> 
+        </div>  
+    </div>
+    <!--End of it-->
+
     <div class="request-detail-section">
         <h1>Request Details</h1>
         <p class="container-cancel-button">
@@ -49,7 +70,7 @@
                     echo "<p>"  . $row["lname"] . "</p>";
                     echo "<hr>";
 
-                    echo "<h5>" . "Phone" . "</h5>";
+                    echo "<h5>" . "Contact Number" . "</h5>";
                     echo "<p>"  . $row["phone"] . "</p>";
                     echo "<hr>";
 
