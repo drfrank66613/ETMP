@@ -3,6 +3,14 @@
   font-family: "Open Sans", sans-serif;
 }
 
+.error {
+  padding-left: 10px;
+  border: 1px solid #a94442;
+  border-radius: 5px;
+  background: #f2dede;
+  text-align: left;
+}
+
 .title {
   margin: 30px 0;
   text-align: center;
@@ -62,6 +70,7 @@ label {
 }
 
 input[type="text"],
+input[type="email"],
 input[type="password"],
 input[type="tel"] {
   width: 100%;
@@ -73,6 +82,7 @@ input[type="tel"] {
 }
 
 input[type="text"]:focus,
+input[type="email"],
 input[type="password"]:focus,
 input[type="tel"]:focus {
   background-color: #ddd;
