@@ -15,8 +15,25 @@
 
 </head>
 <body>
-    <!--Use the title & navbar bar for all client pages-->
-    <?php include('admin_header.php'); ?>
+    <!--Use the title & navbar bar for all admin pages-->
+    <div class="title">
+        <img src="images/etmp_logo.png" alt="logo" style="margin-top: 1rem;">
+        <h4 class="appdesc">ONE OF THE LARGEST TRAINING PROVIDER IN SARAWAK</h4>
+    </div>
+    <div class="navbar">
+        <a class="active" href="admin_homepage.php">Request Handler</a>
+        <a href="admin_about_page.php">About</a>
+        <div class="rightnavbar">
+            <a class="notif" href="#notification"><i class="fa fa-bell"></i></a>
+            <div class="dropdown">
+                <button class="profile">Welcome, <?php echo $_SESSION['username']; ?><i class="fa fa-sort-down" ></i></button>
+                <div class="dropdown-content">
+                    <a href="#">Edit Profile</a>
+                    <a href="logout_session.php?logout">Log Out</a>
+                </div>
+            </div> 
+        </div>  
+    </div>
     <!---->
 
     <div class="request-detail-section">
