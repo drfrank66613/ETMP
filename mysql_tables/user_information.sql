@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2021 at 12:26 PM
+-- Generation Time: Apr 20, 2021 at 12:38 PM
 -- Server version: 10.4.18-MariaDB
--- PHP Version: 7.3.27
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `user_information` (
   `id` int(11) UNSIGNED NOT NULL,
   `username` varchar(30) NOT NULL,
   `email_address` text NOT NULL,
-  `password` varchar(12) NOT NULL,
+  `password` varchar(32) NOT NULL,
   `privilege_level` varchar(10) NOT NULL DEFAULT 'Client'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -40,7 +40,8 @@ CREATE TABLE `user_information` (
 --
 
 INSERT INTO `user_information` (`id`, `username`, `email_address`, `password`, `privilege_level`) VALUES
-(1, 'Boboiboy', 'something@gmail.com', 'sal2jkfls', 'Admin');
+(1, 'admin', 'admin@gmail.com', '0192023a7bbd73250516f069df18b500', 'Admin'),
+(2, 'george', 'dm66613@gmail.com', '1bbd886460827015e5d605ed44252251', 'Client');
 
 --
 -- Indexes for dumped tables
@@ -60,7 +61,7 @@ ALTER TABLE `user_information`
 -- AUTO_INCREMENT for table `user_information`
 --
 ALTER TABLE `user_information`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

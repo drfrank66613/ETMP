@@ -3,6 +3,14 @@
   font-family: "Open Sans", sans-serif;
 }
 
+.error {
+  padding-left: 10px;
+  border: 1px solid #a94442;
+  border-radius: 5px;
+  background: #f2dede;
+  text-align: left;
+}
+
 .title {
   margin: 40px 0;
   text-align: center;
@@ -61,8 +69,7 @@ label {
 }
 
 input[type="text"],
-input[type="password"],
-input[type="tel"] {
+input[type="password"] {
   width: 100%;
   color: black;
   padding: 15px;
@@ -73,8 +80,7 @@ input[type="tel"] {
 }
 
 input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="tel"]:focus {
+input[type="password"]:focus {
   background-color: #ddd;
   outline: none;
 }
@@ -86,7 +92,7 @@ hr {
 
 button {
   background-color: #0065ff;
-  color: white !important;
+  color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;

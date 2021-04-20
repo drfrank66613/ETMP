@@ -1,3 +1,6 @@
+<!--Add this to your code to start the session-->
+<?php include('session_control.php') ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,25 +17,26 @@
     <link rel="stylesheet" href="./styles/admin_about_page.css">
 </head>
 <body>
-    <!--Use the title & navbar bar for all pages-->
+    <!--Use the title & navbar bar for all admin pages-->
     <div class="title">
         <img src="images/etmp_logo.png" alt="logo" style="margin-top: 1rem;">
         <h4 class="appdesc">ONE OF THE LARGEST TRAINING PROVIDER IN SARAWAK</h4>
     </div>
     <div class="navbar">
         <a href="admin_homepage.php">Request Handler</a>
-        <a class="active" href="admin_about_page.html">About</a>
+        <a class="active" href="admin_about_page.php">About</a>
         <div class="rightnavbar">
             <a class="notif" href="#notification"><i class="fa fa-bell"></i></a>
             <div class="dropdown">
-                <button class="profile">Welcome, Admin<i class="fa fa-sort-down" ></i></button>
+                <button class="profile">Welcome, <?php echo $_SESSION['username']; ?><i class="fa fa-sort-down" ></i></button>
                 <div class="dropdown-content">
-                  <a href="#">Edit Profile</a>
-                  <a href="#">Log Out</a>
+                    <a href="#">Edit Profile</a>
+                    <a href="logout_session.php?logout">Log Out</a>
                 </div>
-              </div> 
+            </div> 
         </div>  
     </div>
+    <!---->
 
     <div class="hero-image">
         <div class="hero-text">
