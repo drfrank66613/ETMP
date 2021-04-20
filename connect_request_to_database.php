@@ -24,9 +24,8 @@ $time = $_POST['time'];
       die("Connection failed:" . $conn->connect_error);
     }
 
-    $query_training_type = "SELECT * FROM training_type WHERE training_type_id = $trainingname";
+    $query_training_type = "SELECT * FROM training_type WHERE '$trainingname' = training_type_name";
     $result_training = mysqli_query($conn, $query_training_type);
-    //$row_training = mysqli_fetch_assoc($result_training);
     while ($row = mysqli_fetch_assoc($result_training)) {
       $trainingid = $row['training_type_id'];
     }
