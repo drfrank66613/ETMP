@@ -35,12 +35,8 @@ $time = $_POST['time'];
     VALUES('1','$trainingid', '$firstname', '$lastname', '$phone', '$email', '$address', '$city', '$state', '$venue', '$date', '$time')";
     if (mysqli_query($conn, $sql)) {
       echo "Training Request Form Submitted";
-      echo $venue;
-      echo $phone;
       }
     else {
-      echo $training_name;
-      echo $phone;
       echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 
