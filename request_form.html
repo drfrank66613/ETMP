@@ -83,30 +83,30 @@
          <legend>Training Details</legend>
          <hr>
           <div class="form_group">
-            <select class="form_control" name="training_type" required>
+            <select name="training_name" class="form_control" required>
                 <option value="" disabled selected>Training Course</option>
-                <option value="">Leadership &#38; Communication 101</option>
-                <option value="">Negotiation Skills</option>
-                <option value="">Presentation Skills</option>
+                <option value="Leadership & Communication skills">Leadership &#38; Communication Skills</option>
+                <option value="Negotiation skills">Negotiation Skills</option>
+                <option value="Presentation skills">Presentation Skills</option>
             </select>
 
-            <select class="form_control" name="training_venue" required>
+            <select name="venue" class="form_control" required>
                 <option value="" disabled selected>Venue</option>
-                <option value="">Kuching Branch</option>
-                <option value="">Miri Branch</option>
-                <option value="">Sibu Branch</option>
+                <option value="Kuching Branch">Kuching Branch</option>
+                <option value="Miri Branch">Miri Branch</option>
+                <option value="Sibu Branch">Sibu Branch</option>
             </select>
           </div>
 
           <div class="form_group">
           <input type="date" class="form_control" name="date" required>
-          <input type="time" class="form_control" name="time" min="8:00" max="17:00" required>
+          <input type="time" class="form_control" name="time" required>
           </div>
        </fieldset>
 
        <fieldset class="form_submit">
           <div class="form_group">
-            <button type="submit" class="button_submit" value="Submit" action="">Submit</button>
+            <button type="submit" class="button_submit" value="Submit">Submit</button>
             <button onclick="window.location='client_homepage.html';" type="button" class="button_cancel">Cancel</button>
           </div>
        </fieldset>
