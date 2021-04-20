@@ -1,4 +1,5 @@
 <?php
+
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $phone = $_POST['phone'];
@@ -21,6 +22,24 @@ $time = $_POST['time'];
       die("Connection failed:" . $conn->connect_error);
     }
 
-    $sql = "INSERT INTO request_form (fname, lname, phone, email, address, city, state, training_type, training_venue, training_date, training_time)
-    VALUES('$firstname', '$lastname', '$phone', '$email', '$address', '$city', '$state', '$training', '$venue', '$date', '$time')";
+
+
+    $query_user_id = mysqli_query($conn, "SELECT * FROM user_information WHERE id = user_id");
+    //$query_training_id = "SELECT * FROM training_type WHERE training_type_id = '$trainingid'";
+    $query_training_name = "SELECT training_type_id FROM training_type WHERE training_type_name = '$training'";
+    $result = $conn->query($query_training_name);
+    $trainingid = 1;
+    while ($row = mysqli_fetch_assoc($result)) {
+    $trainingid = $row["training_type_id"];}
+
+    $sql = "INSERT INTO request_form (user_id, training_type_id, fname, lname, phone, email, address, city, state, training_venue, training_date, training_time)
+    VALUES('1','$trainingid', '$firstname', '$lastname', '$phone', '$email', '$address', '$city', '$state', '$venue', '$date', '$time')";
+    if (mysqli_query($conn, $sql)) {
+      echo "New record created successfully";
+      }
+    else {
+      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+
+
  ?>
