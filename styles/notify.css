@@ -119,29 +119,36 @@ body{
     margin-top: 2%;
 }
 .notifications_table{
-    text-overflow: ellipsis;
-    border-collapse: separate;
+    table-layout: fixed;
+    background-color: #f2f2f2;
     border-spacing: 0;
-    padding: 10px;
-    border: solid #000 1px;
-    border-radius: 3px;
-    margin-top: 2%;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom: 0px;
+    border-style: solid;
+    border-color: #000;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    color: black;
+    color: #000;
+}
+
+.notification_topic, .second_row{
     text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
 }
-.the_row{
-    background-color: #f2f2f2;
-    border-top: none;
-}
-.contents{
-    font-size: 15px;
-    border-top: none;
-}
-.dates{
-    font-size: 15px;
+.date_notification_received{
     text-align: right;
-    color: #00a2ff;
+    padding-right: 10px;
+
+}
+.second_row{
+  border-bottom: solid #000 3px;
+  padding-bottom: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
