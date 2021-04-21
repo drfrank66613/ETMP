@@ -1,12 +1,5 @@
 <!--Add this to your code to start the session-->
-<?php
-session_start();
-
-if (!isset($_SESSION['username'])) {
-    header('location: login_page.php');
-}
-
-?>
+<?php include('session_control.php') ?>
 
 <!DOCTYPE html>
 <html>
