@@ -19,14 +19,10 @@
         if ($conn->query($sql) == TRUE) {
             if (isset($_COOKIE["request_id"])) {
                 $request_id = $_COOKIE["request_id"];
-                $sql = "UPDATE request_form SET request_status='Canceled' WHERE form_id=$request_id";
-
-                if ($conn->query($sql) === TRUE) {
+                $sql = "UPDATE request_form SET request_status='Canceled' WHERE form_id = $request_id";
+                $conn->query($sql);
                    
-                }
-                else {
-                    
-                }
+            
             }
             
         }

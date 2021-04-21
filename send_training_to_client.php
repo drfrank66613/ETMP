@@ -28,7 +28,11 @@
         $sql = "INSERT INTO notifications (user_id, title, content) VALUES ($user_value, 'Requested Training' , 'You have received $training_arr training workshop in $training_types type')";
 
         if ($conn->query($sql) == TRUE) {
-           echo "Trainings have been successfully sent to the client";
+            echo "Trainings have been successfully sent to the client";
+            $request_id = $_COOKIE["request_id"];
+            $sql = "UPDATE request_form SET request_status='In Progress' WHERE form_id = $request_id";
+            $conn->query($sql);
+            
 
         }
         else {

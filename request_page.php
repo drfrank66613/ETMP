@@ -221,6 +221,7 @@
                 
                 $(".send-close-button").on("click", function() {
                     sendModal.toggleClass("show-modal");
+                    document.location = "admin_homepage.php";
                 });
             });
 

@@ -53,7 +53,7 @@
                 die("Connection failed: " . $conn->connect_error);
             }
 
-            $sql = "SELECT * FROM request_form WHERE request_status='Pending'";
+            $sql = "SELECT * FROM request_form WHERE request_status='Pending' OR request_status='In Progress'";
             $result = $conn->query($sql);
 
             mysqli_num_rows($result);
