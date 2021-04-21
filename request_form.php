@@ -47,10 +47,8 @@
 
           <input type="text" class="form_control" placeholder="Last Name" name="lastname" required>
         </div>
-        <div class="form_group">
+        <div class="form_wrapper">
           <input type="tel" class="form_control" placeholder="Contact Number" name="phone" required>
-
-          <input type="email" class="form_control" placeholder="Email Address" name="email" required>
         </div>
         <div class="form_wrapper">
           <input type="text" class="form_control" placeholder="Address" name="address" required>
@@ -110,7 +108,7 @@
        <fieldset class="form_submit">
           <div class="form_group">
             <button type="submit" class="button_submit" value="Submit">Submit</button>
-            <button onclick="window.location='client_homepage.html';" type="button" class="button_cancel">Cancel</button>
+            <button onclick="window.location='client_homepage.php';" type="button" class="button_cancel">Cancel</button>
           </div>
        </fieldset>
 

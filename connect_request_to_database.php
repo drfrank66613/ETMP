@@ -8,7 +8,6 @@ $trainingid = 'NOT SET';
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $phone = $_POST['phone'];
-$email = $_POST['email'];
 $address = $_POST['address'];
 $city = $_POST['city'];
 $state = $_POST['state'];
@@ -43,8 +42,8 @@ $time = $_POST['time'];
     $userid = $row['id'];
 
 
-    $sql = "INSERT INTO request_form (user_id, training_type_id, fname, lname, phone, email, address, city, state, training_venue, training_date, training_time)
-    VALUES('$userid','$trainingid', '$firstname', '$lastname', '$phone', '$email', '$address', '$city', '$state', '$venue', '$date', '$time')";
+    $sql = "INSERT INTO request_form (user_id, training_type_id, fname, lname, phone, address, city, state, training_venue, training_date, training_time)
+    VALUES('$userid','$trainingid', '$firstname', '$lastname', '$phone', '$address', '$city', '$state', '$venue', '$date', '$time')";
     if (mysqli_query($conn, $sql)) {
       echo $userid;
       echo "Training Request Form Submitted";

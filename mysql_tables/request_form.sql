@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2021 at 04:12 PM
+-- Generation Time: Apr 21, 2021 at 11:56 AM
 -- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- PHP Version: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,7 +36,6 @@ CREATE TABLE `request_form` (
   `request_status` varchar(255) NOT NULL DEFAULT 'Pending',
   `request_date` datetime NOT NULL DEFAULT current_timestamp(),
   `phone` varchar(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL,
   `state` varchar(255) NOT NULL,
@@ -49,8 +48,12 @@ CREATE TABLE `request_form` (
 -- Dumping data for table `request_form`
 --
 
-INSERT INTO `request_form` (`form_id`, `user_id`, `training_type_id`, `fname`, `lname`, `request_status`, `request_date`, `phone`, `email`, `address`, `city`, `state`, `training_venue`, `training_date`, `training_time`) VALUES
-(1, 1, 1, 'Tensan', 'Fani', 'Pending', '2021-04-05 13:55:59', '01230123', 'customer@email.com', 'asfdfasdfas', 'asfasdf', 'sadfsadasdf', 'Sibu Branch', '12/03/2021', '2:30 PM');
+INSERT INTO `request_form` (`form_id`, `user_id`, `training_type_id`, `fname`, `lname`, `request_status`, `request_date`, `phone`, `address`, `city`, `state`, `training_venue`, `training_date`, `training_time`) VALUES
+(1, 1, 1, 'Tensan', 'Alesandro', 'Pending', '2021-04-05 20:52:46', '01230123', 'asdfv', 'asdf', 'sadf', 'Kuching Branch', '2021-04-23', '15:10'),
+(2, 2, 2, 'Erida', 'Winardi', 'Pending', '2021-04-05 20:54:21', '012301233', 'asdf', 'asdf', 'gdf', 'Kuching Branch', '2021-04-23', '12:05'),
+(3, 1, 1, 'Bryan', 'Ichsan', 'Canceled', '2021-04-21 00:02:43', '08524820698', 'Gusti Hamzah, no.22', 'Sambas', 'Kedah', 'Miri Branch', '2021-04-23', '00:05'),
+(4, 3, 3, 'Bryan', 'Ichsan', 'Pending', '2021-04-21 15:47:02', '08524820698', 'Gusti Hamzah, no.22', 'Sambas', 'Selangor', 'Miri Branch', '2021-04-29', '03:49'),
+(5, 2, 2, 'George', 'Kennedy', 'In Progress', '2021-04-21 15:57:51', '08524820698', 'Gusti Hamzah, no.22', 'Sambas', 'Kedah', 'Sibu Branch', '2021-04-24', '03:01');
 
 --
 -- Indexes for dumped tables
@@ -72,7 +75,7 @@ ALTER TABLE `request_form`
 -- AUTO_INCREMENT for table `request_form`
 --
 ALTER TABLE `request_form`
-  MODIFY `form_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `form_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
