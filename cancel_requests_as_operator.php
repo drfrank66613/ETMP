@@ -22,10 +22,10 @@
                 $sql = "UPDATE request_form SET request_status='Canceled' WHERE form_id=$request_id";
 
                 if ($conn->query($sql) === TRUE) {
-                    echo "NICE";
+                   
                 }
                 else {
-                    echo "nope";
+                    
                 }
             }
             

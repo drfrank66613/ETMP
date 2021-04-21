@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
 </head>
 <body>
     <!--Use the title & navbar bar for all admin pages-->
@@ -88,6 +87,18 @@
 
                     echo "<h5>" . "State" . "</h5>";
                     echo "<p>"  . $row["state"] . "</p>";
+                    echo "<hr>";
+
+                    echo "<h5>" . "Chosen Venue" . "</h5>";
+                    echo "<p>" . $row["training_venue"] . "</p>";
+                    echo "<hr>"; 
+
+                    echo "<h5>" . "Chosen Date" . "</h5>";
+                    echo "<p>" . $row["training_date"] . "</h5>";
+                    echo "<hr>";
+
+                    echo "<h5>" . "Chosen Time" . "</h5>";
+                    echo "<p>" . $row["training_time"] . "</h5>";
                     echo "<hr>";
 
                     echo "<h5>" . "Training Type" . "</h5>";
