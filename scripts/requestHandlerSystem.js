@@ -1,3 +1,5 @@
+location.reload();
+
 var buttons = document.querySelectorAll(".button-training-request");
 
 for (var i = 0; i < buttons.length; i++) {
