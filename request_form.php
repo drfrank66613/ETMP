@@ -13,7 +13,7 @@
 
   <body>
     <div class="title">
-        <h1 class="appname">Expert Training Managament Portal</h1>
+        <img src="images/etmp_logo.png" alt="logo" style="margin-top: 1rem;">
         <h4 class="appdesc">ONE OF THE LARGEST TRAINING PROVIDER IN SARAWAK</h4>
     </div>
     <div class="navbar">

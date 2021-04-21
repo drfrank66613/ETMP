@@ -51,7 +51,9 @@ if (!isset($_SESSION['username'])) {
         <div class="hero-text">
             <p id="longtxt">We provide you hands-on solutions through practical information sharing to help solve day  to  day  business  challenges  by  developing  human  capitals  that  meets  your  company’s  needs.</p>
                 <div class="container"><p>Expert.com has the right training workshop for you</p>
-                    <button type="button" ><b>Request Now</b></button>
+                    <a href="request_form.php">
+                        <button type="button" ><b>Request Now</b></button>
+                    </a>
                     <button type="button" ><b>Learn More</b></button>
                 </div>
         </div>
