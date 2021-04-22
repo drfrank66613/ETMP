@@ -23,15 +23,15 @@
         <a class="active" href="admin_homepage.php">Request Handler</a>
         <a href="admin_about_page.php">About</a>
         <div class="rightnavbar">
-            <a class="notif" href="#notification"><i class="fa fa-bell"></i></a>
+            <a class="notif" href="notification_admin.php"><i class="fa fa-bell"></i></a>
             <div class="dropdown">
                 <button class="profile">Welcome, <?php echo $_SESSION['username']; ?><i class="fa fa-sort-down" ></i></button>
                 <div class="dropdown-content">
                     <a href="#">Edit Profile</a>
                     <a href="logout_session.php?logout">Log Out</a>
                 </div>
-            </div> 
-        </div>  
+            </div>
+        </div>
     </div>
     <!---->
 
@@ -57,7 +57,7 @@
             $training_type;
 
             if (isset($_COOKIE["request_id"])) {
-                $request_id = $_COOKIE["request_id"];   
+                $request_id = $_COOKIE["request_id"];
 
                 $sql = "SELECT * FROM request_form WHERE form_id = $request_id";
                 $result = $conn->query($sql);
@@ -91,7 +91,7 @@
 
                     echo "<h5>" . "Chosen Venue" . "</h5>";
                     echo "<p>" . $row["training_venue"] . "</p>";
-                    echo "<hr>"; 
+                    echo "<hr>";
 
                     echo "<h5>" . "Chosen Date" . "</h5>";
                     echo "<p>" . $row["training_date"] . "</h5>";
@@ -102,12 +102,12 @@
                     echo "<hr>";
 
                     echo "<h5>" . "Training Type" . "</h5>";
-            
+
                     $data_int = (int)$row['training_type_id'];
-                            
+
                     $sql_2 = "SELECT * FROM training_type WHERE training_type_id = $data_int";
                     $result2 = $conn->query($sql_2);
-                    
+
                     while ($row = mysqli_fetch_assoc($result2)) {
                         $training_type = $row['training_type_name'];
                         echo "<p>" . $training_type . "</p>";
@@ -117,13 +117,13 @@
             }
         ?>
     </div>
-        
+
     <div class="search-training-section">
         <h1>Search Trainings</h1>
         <form id="search-form" method="post">
             <label class="label-training-type" for="search">Training Type</label>
             <input id="search" class="training-search-bar" type="text" placeholder="Search..." name="search"/>
-            <button class='search-button' type="submit"><i class="fa fa-search"></i></button>   
+            <button class='search-button' type="submit"><i class="fa fa-search"></i></button>
         </form>
 
         <table class="search-training-table">
@@ -134,8 +134,8 @@
                 <th></th>
 
             </tr>
-            
-            <?php 
+
+            <?php
                 $sql_3 = "SELECT tw.training_name, tw.training_price, tt.training_type_name FROM training_workshop tw
                 INNER JOIN training_type tt ON tt.training_type_id = tw.training_type_id";
                 $result_3 = $conn->query($sql_3);
@@ -151,7 +151,7 @@
                     echo "<td>" . $row["training_type_name"] . "</td>";
                     echo "<td>" . "RM " . $row["training_price"] . "</td>";
                     echo "<td class='checkbox-row'><input type='checkbox' name='training' value='" . $row["training_name"] . "," .  $row["training_type_name"] . "'/>" . "</td>";
-                    
+
                     echo "</tr>";
                     }
                 }
@@ -162,7 +162,7 @@
             <button class="send-training-button">Send Training</button>
         </p>
     </div>
-    
+
     <!-- Sending Training to client Modal Box -->
     <div class="send-modal">
         <div class="modal-content">
@@ -180,7 +180,7 @@
             <button class="confirm-button">Confirm</button>
         </div>
     </div>
-    
+
     <script type="text/javascript">
         var user_id = "<?php echo $user?>"
         var training_type = "<?php echo $training_type?>";
@@ -195,7 +195,7 @@
                 $(".search-training-table").html(data);
             });
             return false;
-            });     
+            });
 
             $(function() {
                 $('.send-training-button').on("click", function() {
@@ -209,16 +209,16 @@
 
                         checkboxValues.push(temp[0]);
                         training_types.push(temp[1]);
-                    }); 
+                    });
 
                     $.post("send_training_to_client.php", {training_name: checkboxValues, user: user_id, training_type: training_types}, function(data) {
                         if (data) {
                             $(".send-modal h3").html(data);
                             sendModal.toggleClass("show-modal");
                         }
-                    });                
-                });   
-                
+                    });
+                });
+
                 $(".send-close-button").on("click", function() {
                     sendModal.toggleClass("show-modal");
                     document.location = "admin_homepage.php";
@@ -242,8 +242,8 @@
                 });
             });
 
-        })    
-    
+        })
+
     </script>
 </body>
 </html>

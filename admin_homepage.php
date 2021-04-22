@@ -11,10 +11,10 @@
     <meta name="description" content="Home page">
     <meta name="keywords" content="training, workshop">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    
+
     <!--Use link below to display icons on the navbar-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <link rel="stylesheet" href="./styles/admin_homepage.css">
 </head>
 <body>
@@ -27,15 +27,15 @@
         <a class="active" href="admin_homepage.php">Request Handler</a>
         <a href="admin_about_page.php">About</a>
         <div class="rightnavbar">
-            <a class="notif" href="#notification"><i class="fa fa-bell"></i></a>
+            <a class="notif" href="notification_admin.php"><i class="fa fa-bell"></i></a>
             <div class="dropdown">
                 <button class="profile">Welcome, <?php echo $_SESSION['username']; ?><i class="fa fa-sort-down" ></i></button>
                 <div class="dropdown-content">
                     <a href="#">Edit Profile</a>
                     <a href="logout_session.php?logout">Log Out</a>
                 </div>
-            </div> 
-        </div>  
+            </div>
+        </div>
     </div>
     <!---->
 
@@ -74,21 +74,21 @@
 
                     while ($rows = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                         echo "<tr>";
-                        
+
                         echo "<td>" . $rows['fname'] . "</td>";
                         echo "<td>" . $rows['lname'] . "</td>";
                         $data_int = (int)$rows['training_type_id'];
-                            
+
                         $sql_2 = "SELECT * FROM training_type WHERE training_type_id = $data_int";
                         $result2 = $conn->query($sql_2);
-                        
+
                         while ($row = mysqli_fetch_assoc($result2)) {
                             echo "<td>" . $row['training_type_name'] . "</td>";
                         }
 
                         echo "<td>" . $rows['request_status'] . "</td>";
                         echo "<td>" . $rows['request_date'] . "</td>";
-                        
+
                         echo "<td><button class='button-training-request' name='lala' type='submit'" . " value= " . $rows['form_id'] . ">Manage</button></td>";
                         echo "</tr>";
                     }
@@ -100,7 +100,7 @@
             }
         ?>
 
-    </section>    
+    </section>
     <script src="scripts/requestHandlerSystem.js"></script>
 </body>
 </html>
