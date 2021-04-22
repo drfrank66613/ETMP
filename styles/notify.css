@@ -53,7 +53,7 @@ body{
   color: #ff9a00;
 }
 
-.navbar a.active {
+.navbar a.notif {
   background-color: #00a2ff;
   color: white;
 }
