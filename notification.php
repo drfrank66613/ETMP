@@ -1,5 +1,5 @@
 <!--Add this to your code to start the session-->
-<?php include('session_control.php') ?>
+<?php include('session_control.php')?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +40,7 @@
     <h1 class="notification_title">Notifications</h1>
     <table class="notifications_table">
       <?php
+      mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
       $host = "localhost";
       $dbUsername = "root";
       $dbPassword = "";
@@ -49,16 +50,22 @@
         die("Connection failed:". $conn->connect_error);
       }
 
-      $sql = "SELECT * FROM notifications";
-      $result = $conn->query($sql);
-      if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()){
+      $username = $_SESSION['username'];
+      $query_user_id = "SELECT * FROM user_information WHERE '$username' = username";
+      $result_user_id = mysqli_query($conn, $query_user_id);
+      $row = mysqli_fetch_assoc($result_user_id);
+      $userid = $row['id'];
+
+      $query_notification = "SELECT * FROM notifications WHERE user_id = $userid";
+      $result_notification = mysqli_query($conn, $query_notification);
+      if ($result_notification->num_rows > 0) {
+        while ($fetch = mysqli_fetch_assoc($result_notification)){
        echo "<tr>
-        <td class ='notification_topic'><h3>" . $row["title"] . "</h3></td>
-        <td class = 'date_notification_received'>" . $row["date_received"] . "</td>
+        <td class ='notification_topic'><h3>" . $fetch["title"] . "</h3></td>
+        <td class = 'date_notification_received'>" . $fetch["date_received"] . "</td>
       </tr>
       <tr class = 'table_rows'>
-        <td colspan='2' class ='second_row'><span>" .$row["content"] . "</span</td>
+        <td colspan='2' class ='second_row'><span>" .$fetch["content"] . "</span</td>
 
       </tr>";
     }
