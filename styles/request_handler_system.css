@@ -4,6 +4,10 @@ body {
     margin: 0;
 }
 
+h1 {
+    color: #00a2ff;
+}
+
 /*Use styles below for the navbar*/
 .title {
 position: relative;
