@@ -152,3 +152,9 @@ body{
   overflow: hidden;
   white-space: nowrap;
 }
+
+.notification_empty{
+  margin-left: 25%;
+  color: #fe0002;
+  margin-top: 2%
+}

@@ -38,7 +38,7 @@
     <!---->
 
     <h1 class="notification_title">Notifications</h1>
-    <table class="notifications_table">
+
       <?php
       mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
       $host = "localhost";
@@ -60,19 +60,21 @@
       $result_notification = mysqli_query($conn, $query_notification);
       if ($result_notification->num_rows > 0) {
         while ($fetch = mysqli_fetch_assoc($result_notification)){
-       echo "<tr>
+       echo "<table class='notifications_table'>
+       <tr>
         <td class ='notification_topic'><h3>" . $fetch["title"] . "</h3></td>
         <td class = 'date_notification_received'>" . $fetch["date_received"] . "</td>
       </tr>
       <tr class = 'table_rows'>
         <td colspan='2' class ='second_row'><span>" .$fetch["content"] . "</span</td>
 
-      </tr>";
+      </tr>
+      </table>";
     }
-  }else { echo "No Data"; }
+  }else { echo "<h3 class='notification_empty'>You currently have 0 notifications</h3>"; }
   $conn->close();
   ?>
-    </table>
+
 
   </body>
 </html>
