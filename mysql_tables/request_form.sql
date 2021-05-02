@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2021 at 11:56 AM
+-- Generation Time: Apr 26, 2021 at 08:01 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.27
 
@@ -49,11 +49,7 @@ CREATE TABLE `request_form` (
 --
 
 INSERT INTO `request_form` (`form_id`, `user_id`, `training_type_id`, `fname`, `lname`, `request_status`, `request_date`, `phone`, `address`, `city`, `state`, `training_venue`, `training_date`, `training_time`) VALUES
-(1, 1, 1, 'Tensan', 'Alesandro', 'Pending', '2021-04-05 20:52:46', '01230123', 'asdfv', 'asdf', 'sadf', 'Kuching Branch', '2021-04-23', '15:10'),
-(2, 2, 2, 'Erida', 'Winardi', 'Pending', '2021-04-05 20:54:21', '012301233', 'asdf', 'asdf', 'gdf', 'Kuching Branch', '2021-04-23', '12:05'),
-(3, 1, 1, 'Bryan', 'Ichsan', 'Canceled', '2021-04-21 00:02:43', '08524820698', 'Gusti Hamzah, no.22', 'Sambas', 'Kedah', 'Miri Branch', '2021-04-23', '00:05'),
-(4, 3, 3, 'Bryan', 'Ichsan', 'Pending', '2021-04-21 15:47:02', '08524820698', 'Gusti Hamzah, no.22', 'Sambas', 'Selangor', 'Miri Branch', '2021-04-29', '03:49'),
-(5, 2, 2, 'George', 'Kennedy', 'In Progress', '2021-04-21 15:57:51', '08524820698', 'Gusti Hamzah, no.22', 'Sambas', 'Kedah', 'Sibu Branch', '2021-04-24', '03:01');
+(6, 2, 1, 'Irwan', 'Ngo', 'Pending', '2021-04-26 13:50:04', '0111111111', 'Nice House Bro', 'Kuching', 'Sarawak', 'Kuching Branch', '2021-04-28', '16:53');
 
 --
 -- Indexes for dumped tables
@@ -64,8 +60,8 @@ INSERT INTO `request_form` (`form_id`, `user_id`, `training_type_id`, `fname`, `
 --
 ALTER TABLE `request_form`
   ADD PRIMARY KEY (`form_id`),
-  ADD KEY `fk_id_user` (`user_id`),
-  ADD KEY `fk_training_type_id` (`training_type_id`);
+  ADD KEY `fk_training_type_id` (`training_type_id`),
+  ADD KEY `user_id` (`user_id`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -75,7 +71,7 @@ ALTER TABLE `request_form`
 -- AUTO_INCREMENT for table `request_form`
 --
 ALTER TABLE `request_form`
-  MODIFY `form_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `form_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
@@ -85,8 +81,8 @@ ALTER TABLE `request_form`
 -- Constraints for table `request_form`
 --
 ALTER TABLE `request_form`
-  ADD CONSTRAINT `fk_id_user` FOREIGN KEY (`user_id`) REFERENCES `user_information` (`id`),
-  ADD CONSTRAINT `fk_training_type_id` FOREIGN KEY (`training_type_id`) REFERENCES `training_type` (`training_type_id`);
+  ADD CONSTRAINT `fk_training_type_id` FOREIGN KEY (`training_type_id`) REFERENCES `training_type` (`training_type_id`),
+  ADD CONSTRAINT `users_id` FOREIGN KEY (`user_id`) REFERENCES `user_information` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

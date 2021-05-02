@@ -56,13 +56,13 @@
       $row = mysqli_fetch_assoc($result_user_id);
       $userid = $row['id'];
 
-      $query_notification = "SELECT * FROM notifications WHERE user_id = $userid";
+      $query_notification = "SELECT * FROM notifications WHERE user_id = $userid ORDER BY date_received DESC";
       $result_notification = mysqli_query($conn, $query_notification);
       if ($result_notification->num_rows > 0) {
         while ($fetch = mysqli_fetch_assoc($result_notification)){
        echo "<table class='notifications_table'>
        <tr>
-        <td class ='notification_topic'><h3>" . $fetch["title"] . "</h3></td>
+        <td class ='notification_topic'><h3>" . $row["username"] . ', ' . $fetch["title"] . "</h3></td>
         <td class = 'date_notification_received'>" . $fetch["date_received"] . "</td>
       </tr>
       <tr class = 'table_rows'>

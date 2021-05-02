@@ -55,7 +55,8 @@
       $row = mysqli_fetch_assoc($result_user_id);
       $userid = $row['id'];
 
-      $query_notification = "SELECT * FROM notifications WHERE user_id = $userid";
+
+      $query_notification = "SELECT * FROM notifications WHERE user_id = $userid ORDER BY date_received DESC";
       $result_notification = mysqli_query($conn, $query_notification);
       if ($result_notification->num_rows > 0) {
         while ($fetch = mysqli_fetch_assoc($result_notification)){
