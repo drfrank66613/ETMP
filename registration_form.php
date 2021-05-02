@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./styles/registration_form.css">
 </head>
 <body>
-    <h1 class="title">Expert Training Managament Portal</h1>
+    <img class="center" src="images/etmp_logo.png" alt="logo">
     <p id="bigTxt">WE PROVIDE YOU THE BEST TRAINING WORKSHOP EVER!</p>
     <p id="smallTxt">Sign Up to Request Your Training Workshop Now!</p>
     <form action="registration_form.php" method="POST" style="border:1px solid #ccc">

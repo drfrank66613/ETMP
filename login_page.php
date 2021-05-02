@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./styles/login_page.css">
 </head>
 <body>
-    <h1 class="title">Expert Training Managament Portal</h1>
+    <img class="center" src="images/etmp_logo.png" alt="logo">
     <p id="bigTxt">WE PROVIDE YOU THE BEST TRAINING WORKSHOP EVER!</p>
     <p id="smallTxt">Log In to Request Your Training Workshop Now!</p>
     
