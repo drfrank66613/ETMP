@@ -167,3 +167,106 @@ button:hover {
 .container p {
   font-size: 20px;
 }
+
+/* The Modal (background) */
+.modal-box {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+form {
+  width: 50%;
+  margin: 0 auto;
+  color: #00a2ff;
+}
+
+label {
+  color: black;
+  font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 18px 0;
+  border-radius: 5px;
+  border: none;
+  background: #e9e9e9;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #e9e9e9;
+  margin-bottom: 20px;
+}
+
+.savebtn,
+.cancelbtn {
+  background-color: #0065ff;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity: 80%;
+}
+
+.cancelbtn {
+  padding: 10px 20px;
+  background-color: #ff5e00;
+}
+
+.cancelbtn,
+.savebtn {
+  border-radius: 5px;
+}
+
+.container {
+  padding: 5px 16px 10px;
+}
