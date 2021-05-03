@@ -5,16 +5,18 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="styles/training_request_form.css">
-    <script src="scipts/request_form.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <script src="scripts/requestForm.js"></script>
     <title>Training Request Form</title>
   </head>
 
   <body>
+
     <div class="title">
         <img src="images/etmp_logo.png" alt="logo" style="margin-top: 1rem;">
         <h4 class="appdesc">ONE OF THE LARGEST TRAINING PROVIDER IN SARAWAK</h4>
@@ -100,8 +102,8 @@
           </div>
 
           <div class="form_group">
-          <input type="date" class="form_control" name="date" required>
-          <input type="time" class="form_control" name="time" required>
+          <input type="date" class="form_control"  name="date" required>
+          <input type="text" class="form_control" name="time" id="timePicker" required>
           </div>
        </fieldset>
 
@@ -114,5 +116,12 @@
 
       </form>
       </div>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+      <script type="text/javascript">
+      $(document).ready(function(){
+          $('#timePicker').timepicker({});
+      });
+      </script>
   </body>
 </html>
