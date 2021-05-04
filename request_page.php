@@ -176,8 +176,21 @@
     <div class="cancel-modal">
         <div class="modal-content">
             <span class="cancel-close-button">×</span>
-            <h3>Are you sure cancel this request?</h3>
-            <button class="confirm-button">Confirm</button>
+            <h2>Are you sure cancel this request?</h2>
+            <div class="custom-select">
+                <h4>Reason of cancellation</h4>
+                <select>
+                    <option value="" disabled selected>Reason:</option>
+                    <option value="no response">No response for a week</option>
+                    <option value="full">The training workshop is full</option>
+                    <option value="others">Others</option>
+                </select>
+            </div>
+            <div id="other-reason-section">
+                <h4>What is the other reason</h4>
+                <textarea name="other-reason" cols="30" rows="10"></textarea>
+            </div>
+            <button class="confirm-button-disabled" disabled>Confirm</button>
         </div>
     </div>
 
@@ -190,11 +203,33 @@
 
         $(document).ready(function() {
             $("#search-form").bind('submit',function() {
-            var value = $('#search').val();
-            $.post('search_training.php',{value:value}, function(data){
-                $(".search-training-table").html(data);
+                var value = $('#search').val();
+                $.post('search_training.php',{value:value}, function(data){
+                    $(".search-training-table").html(data);
+                });
+                return false;
             });
-            return false;
+
+            $("select").on("change", function(e) {
+                var selectedOption = $(this).find("option:selected");
+                var selectedValue  = selectedOption.val();
+                var otherSection = $("#other-reason-section");
+                var submitButton = $(".confirm-button-disabled");
+                
+                submitButton.prop("disabled", !selectedValue);
+
+                if (selectedValue) {
+                    submitButton.removeClass("confirm-button-disabled");
+                    submitButton.addClass("confirm-button");
+                }
+                
+                if (selectedValue == "others") {
+                    otherSection.css("display", "block");
+                }
+                else {
+                    otherSection.css("display", "none");
+                }
+
             });
 
             $(function() {
@@ -227,6 +262,8 @@
 
             $(function() {
                 var type = "<?php echo $training_type ?>"
+
+
                 $(".cancel-button").on("click", function() {
                     cancelModal.toggleClass("show-modal");
                 });
@@ -234,14 +271,31 @@
                 $(".cancel-close-button").on("click", function() {
                     cancelModal.toggleClass("show-modal");
                 });
+                
+                $(".confirm-button-disabled").on("click", function() {
+                    var option = $("select").children("option:selected");
+                    var value = option.val();
+                    var predefinedReason = "";
+                    var otherReason = "";
 
-                $(".confirm-button").on("click", function() {
-                    $.post("cancel_requests_as_operator.php", {training_type: type, user: user_id});
+                    if (value = "others") {
+                        otherReason = $("textarea").val();
+                    }
+           
+                    predefinedReason = option.text();
+                    
+                    if (option.val() == "others") {
+                        $.post("cancel_requests_as_operator.php", {training_type: type, user: user_id, cancel_reason: otherReason});
+                    }
+                    else {
+                        $.post("cancel_requests_as_operator.php", {training_type: type, user: user_id, cancel_reason: predefinedReason});
+                    }
+                    
                     cancelModal.toggleClass("show-modal");
                     document.location = "admin_homepage.php";
                 });
             });
-
+            
         })
 
     </script>
