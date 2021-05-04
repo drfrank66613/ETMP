@@ -89,8 +89,13 @@ if (isset($_POST['submitLogInfo'])){
           
         $query = "SELECT * FROM user_information WHERE username='$username' AND password='$password'";
         $result = mysqli_query($con, $query);
+        $row = mysqli_fetch_array($result);
         if(mysqli_num_rows($result) == 1){
             $_SESSION['username'] = $username;
+            $_SESSION['email'] = $row['email_address'];
+            $_SESSION['con'] = $con;
+            $_SESSION['errors'] = $errors;
+            $_SESSION['userLevel'] = $userLevelResult;
             if($userLevelResult == 'Client'){
                 header('location: client_homepage.php');
             }elseif($userLevelResult == 'Admin'){

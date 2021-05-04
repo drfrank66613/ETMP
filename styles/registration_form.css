@@ -3,6 +3,7 @@
   font-family: "Open Sans", sans-serif;
 }
 
+/*Error Messages*/
 .error {
   padding-left: 10px;
   border: 1px solid #a94442;
@@ -11,6 +12,7 @@
   text-align: left;
 }
 
+/*Logo Alignment*/
 .center {
   margin-top: 40px;
   display: block;
@@ -63,6 +65,7 @@ form {
   width: 50%;
   margin: 0 auto;
   color: #00a2ff;
+  border: 1px solid #ccc;
 }
 
 label {

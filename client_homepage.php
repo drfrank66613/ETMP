@@ -34,36 +34,13 @@
             <div class="dropdown">
                 <button class="profile">Welcome, <?php echo $_SESSION['username']; ?><i class="fa fa-sort-down" ></i></button>
                 <div class="dropdown-content">
-                  <a href="#" id="editProfileBtn">Edit Profile</a>
+                  <a href="profile_page.php" id="editProfileBtn">Edit Profile</a>
                   <a href="logout_session.php?logout">Log Out</a>
                 </div>
               </div> 
         </div>  
     </div>
     <!---->
-    <div id="modalBox" class="modal-box">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <form action="/action_page.php" class="form-container">
-                <h1>Edit Profile</h1>
-                <label for="username"><b>Username</b></label>
-                <input type="text" name="username" value="<?php echo $_SESSION['username'];?>" required>
-        
-                <label for="email"><b>Email</b></label>
-                <input type="email" name="email" value="dm66613@gmail.com" required>
-        
-                <label for="password"><b>Password</b></label>
-                <input type="password" placeholder="Enter Your New Password" name="regPassword" required>
-        
-                <label for="password-confirm"><b>Confirm Password</b></label>
-                <input type="password" placeholder="Confirm Your Password" name="confirm-password" required>
-
-                <button type="submit" name="submitEditForm" value="Submit" class="savebtn"><b>Save Changes</b></button>
-                <button type="button" class="cancelbtn"><b>Cancel</b></button>
-            </form>
-        </div>
-    </div>
-    <script src="./scripts/editProfileModalBox.js"></script>
 
     <div class="hero-image">
         <div class="hero-text">

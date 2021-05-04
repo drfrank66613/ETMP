@@ -15,7 +15,7 @@
     <img class="center" src="images/etmp_logo.png" alt="logo">
     <p id="bigTxt">WE PROVIDE YOU THE BEST TRAINING WORKSHOP EVER!</p>
     <p id="smallTxt">Sign Up to Request Your Training Workshop Now!</p>
-    <form action="registration_form.php" method="POST" style="border:1px solid #ccc">
+    <form action="registration_form.php" method="POST">
         <div class="container">
           <h2 >Sign Up</h2>
           <?php  if (count($errors) > 0) : ?>
