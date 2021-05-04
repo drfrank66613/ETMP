@@ -21,7 +21,7 @@
         <h4 class="appdesc">ONE OF THE LARGEST TRAINING PROVIDER IN SARAWAK</h4>
     </div>
     <div class="navbar">
-        <a class="active" href="client_homepage.php">Home</a>
+        <a href="client_homepage.php">Home</a>
         <a href="#news">My Training</a>
         <a href="client_about_page.php">About</a>
         <div class="rightnavbar">

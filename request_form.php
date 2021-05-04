@@ -103,8 +103,8 @@
           </div>
 
           <div class="form_group">
-          <input type="date" class="form_control"  name="date" required>
-          <input type="text" id="timePicker" placeholder="--:--" class="form_control" name="time" required>
+          <input type="date" class="form_control"  name="date" onkeydown="return false" required>
+          <input type="text" id="timePicker" placeholder="--:--" class="form_control" name="time" onkeydown="return false" required>
           </div>
        </fieldset>
 
@@ -123,7 +123,7 @@
         interval: 60,
         minTime: '10:00am',
         maxTime: '4:00pm',
-        dynamic: true,
+        dynamic: false,
         dropdown: true,
       });
       </script>
