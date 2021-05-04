@@ -10,8 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
     <title>Training Request Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <script src="scripts/requestForm.js"></script>
   </head>
 
   <body>
@@ -102,7 +104,7 @@
 
           <div class="form_group">
           <input type="date" class="form_control"  name="date" required>
-          <input type="text" class="form_control" name="time" id="timePicker" required>
+          <input type="text" id="timePicker" placeholder="--:--" class="form_control" name="time" required>
           </div>
        </fieldset>
 
@@ -112,14 +114,17 @@
             <button onclick="window.location='client_homepage.php';" type="button" class="button_cancel">Cancel</button>
           </div>
        </fieldset>
-
       </form>
       </div>
-
       <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
       <script type="text/javascript">
-      $(document).ready(function(){
-          $('#timePicker').timepicker({});
+      $('#timePicker').timepicker({
+        timeFormat: 'h:mm p',
+        interval: 60,
+        minTime: '10:00am',
+        maxTime: '4:00pm',
+        dynamic: true,
+        dropdown: true,
       });
       </script>
   </body>
