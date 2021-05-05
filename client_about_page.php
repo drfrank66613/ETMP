@@ -27,7 +27,8 @@
         <a href="my_training_page.php">My Training</a>
         <a class="active" href="client_about_page.php">About</a>
         <div class="rightnavbar">
-            <a class="notif" href="notification.php"><i class="fa fa-bell"></i></a>
+            <a href="calendar_page.php"><i class="fa fa-calendar"></i></a>
+            <a href="notification.php"><i class="fa fa-bell"></i></a>
             <div class="dropdown">
                 <button class="profile">Welcome, <?php echo $_SESSION['username']; ?><i class="fa fa-sort-down" ></i></button>
                 <div class="dropdown-content">
