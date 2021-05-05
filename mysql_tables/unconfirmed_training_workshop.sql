@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2021 at 09:25 AM
+-- Generation Time: May 05, 2021 at 03:30 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.27
 
@@ -31,8 +31,15 @@ CREATE TABLE `unconfirmed_training_workshop` (
   `unconfirmed_training_id` int(11) UNSIGNED NOT NULL,
   `form_id` int(11) UNSIGNED NOT NULL,
   `training_id` int(11) UNSIGNED NOT NULL,
-  `status` varchar(15) NOT NULL
+  `training_status` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `unconfirmed_training_workshop`
+--
+
+INSERT INTO `unconfirmed_training_workshop` (`unconfirmed_training_id`, `form_id`, `training_id`, `training_status`) VALUES
+(1, 2, 3, 'unconfirmed');
 
 --
 -- Indexes for dumped tables
@@ -54,7 +61,7 @@ ALTER TABLE `unconfirmed_training_workshop`
 -- AUTO_INCREMENT for table `unconfirmed_training_workshop`
 --
 ALTER TABLE `unconfirmed_training_workshop`
-  MODIFY `unconfirmed_training_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `unconfirmed_training_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
