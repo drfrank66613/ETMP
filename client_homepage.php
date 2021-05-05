@@ -11,13 +11,13 @@
     <meta name="description" content="Home page">
     <meta name="keywords" content="training, workshop">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    
+
     <!--Use link below to display icons on the navbar-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--End of it-->
-    
+
     <link rel="stylesheet" href="./styles/client_homepage.css">
-    
+
 </head>
 <body>
     <!--Use the title & navbar bar for all client pages-->
@@ -38,8 +38,8 @@
                   <a href="profile_page.php" id="editProfileBtn">Edit Profile</a>
                   <a href="logout_session.php?logout">Log Out</a>
                 </div>
-              </div> 
-        </div>  
+              </div>
+        </div>
     </div>
     <!---->
 
@@ -54,5 +54,26 @@
                 </div>
         </div>
     </div>
+    <!--General Information-->
+    <div class="grid">
+      <h1 class="grid-title">Expand You Career Opportunities</h1>
+      <div class="grid-item">
+        <h3>Discover New Frontiers</h3>
+        <p>We provide you hands-on solutions through practical information sharing....Industry Leaders</p>
+      </div>
+      <div class="grid-item">
+        <h3>Raise Your Standards</h3>
+        <p>Lorem Ipsum The leading We provide you hands-on solutions through practical information sharing</p>
+      </div>
+      <div class="grid-item">
+        <h3>Diversify Your Portfolio</h3>
+        <p>Lorem Ipsum Create a business, whether you’ve got a fresh idea or are looking for a new way to make money.Rise among your peers, </p>
+      </div>
+      <div class="grid-item">
+        <h3>Diversify Your Portfolio</h3>
+        <p>Lorem Ipsum Create a business, whether you’ve got a fresh idea or are looking for a new way to make money.Rise among your peers, </p>
+      </div>
+    </div>
+    <!---->
 </body>
 </html>

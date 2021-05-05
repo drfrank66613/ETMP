@@ -270,3 +270,21 @@ button:hover {
 .container {
   padding: 5px 16px 10px;
 }
+
+/*General Information*/
+
+.grid{
+  justify-content: center;
+  box-sizing: border-box;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.grid-title{
+  text-align: center;
+}
+.grid-item {
+  height: 234px;
+  float: left;
+  width: 25%;
+}
