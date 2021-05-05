@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2021 at 01:39 PM
+-- Generation Time: May 05, 2021 at 09:25 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.27
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `itinerary_management` (
   `itinerary_management_id` int(11) UNSIGNED NOT NULL,
-  `form_id` int(11) UNSIGNED NOT NULL,
+  `user_id` int(11) UNSIGNED NOT NULL,
   `training_itinerary_id` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -42,8 +42,8 @@ CREATE TABLE `itinerary_management` (
 --
 ALTER TABLE `itinerary_management`
   ADD PRIMARY KEY (`itinerary_management_id`),
-  ADD KEY `fk_form_id` (`form_id`),
-  ADD KEY `fk_training_itinerary_id` (`training_itinerary_id`);
+  ADD KEY `fk_training_itinerary_id` (`training_itinerary_id`),
+  ADD KEY `fk_user_information` (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -63,8 +63,8 @@ ALTER TABLE `itinerary_management`
 -- Constraints for table `itinerary_management`
 --
 ALTER TABLE `itinerary_management`
-  ADD CONSTRAINT `fk_form_id` FOREIGN KEY (`form_id`) REFERENCES `request_form` (`form_id`),
-  ADD CONSTRAINT `fk_training_itinerary_id` FOREIGN KEY (`training_itinerary_id`) REFERENCES `training_itinerary` (`training_itinerary_id`);
+  ADD CONSTRAINT `fk_training_itinerary_id` FOREIGN KEY (`training_itinerary_id`) REFERENCES `training_itinerary` (`training_itinerary_id`),
+  ADD CONSTRAINT `fk_user_information` FOREIGN KEY (`user_id`) REFERENCES `user_information` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
