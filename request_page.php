@@ -136,13 +136,17 @@
             </tr>
 
             <?php
+                $request_id = $_COOKIE["request_id"];
                 $sql_3 = "SELECT tw.training_name, tw.training_price, tt.training_type_name FROM training_workshop tw
-                INNER JOIN training_type tt ON tt.training_type_id = tw.training_type_id";
+                INNER JOIN training_type tt ON tt.training_type_id = tw.training_type_id
+                WHERE tw.training_id NOT IN (SELECT training_id FROM unconfirmed_training_workshop WHERE form_id = '$request_id')";
+
                 $result_3 = $conn->query($sql_3);
+
                 if (mysqli_num_rows($result_3) == 0) {
-                echo "<tr>";
-                echo "<td colspan=3> No Training </td>";
-                echo "</tr>";
+                    echo "<tr>";
+                    echo "<td colspan=3> No Training </td>";
+                    echo "</tr>";
                 }
                 else {
                 while ($row = mysqli_fetch_assoc($result_3)) {

@@ -9,11 +9,14 @@
     if ($conn->connect_errno) {
         die("Connection failed: " . $conn->connect_error);
     }
+
+    $request_id = $_COOKIE["request_id"];
     
     if (isset($_POST['value']) && strlen($_POST['value'])) {
         $search_value = $_POST['value'];
         $sql_3 = "SELECT tw.training_name, tw.training_price, tt.training_type_name FROM training_workshop tw INNER JOIN training_type tt ON tt.training_type_id = tw.training_type_id 
-                    WHERE '$search_value' = tt.training_type_name OR '$search_value' = tw.training_name"; 
+                    WHERE ('$search_value' = tt.training_type_name OR '$search_value' = tw.training_name) 
+                    AND tw.training_id NOT IN (SELECT training_id FROM unconfirmed_training_workshop WHERE form_id = '$request_id')"; 
         $result_3 = $conn->query($sql_3);
 
         echo "<tr>";
@@ -46,8 +49,9 @@
         }
     }
     else  {
-        $sql_3 = "SELECT tw.training_name, tw.training_price, tt.training_type_name  FROM training_workshop tw
-                            INNER JOIN training_type tt ON tt.training_type_id = tw.training_type_id";
+        $sql_3 = "SELECT tw.training_name, tw.training_price, tt.training_type_name FROM training_workshop tw
+        INNER JOIN training_type tt ON tt.training_type_id = tw.training_type_id
+        WHERE tw.training_id NOT IN (SELECT training_id FROM unconfirmed_training_workshop WHERE form_id = '$request_id')";
         $result_3 = $conn->query($sql_3);
 
         echo "<tr>";

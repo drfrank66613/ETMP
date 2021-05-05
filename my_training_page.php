@@ -41,40 +41,97 @@
     </div>
     <!---->
 
+    <!-- In Pages Module Tab -->
     <div id="module-tab">
         <button class="link" id="openByDefault" value="pending-section">Pending/In Progress Training</button>
         <button class="link" value="confirmed-section">Confirmed Training</button>
     </div>
     
+    <!-- Pending or In Progress Section -->
+    <!-- All of the images are taken from Unsplash website -->
     <div id="pending-section" class="content">
-        <div class="training-workshop-content">
-            <img src="images/leadership.jfif" alt="leadership">
-            <div>
-                <h3>First by default</h3>
-                <p>Leadership & Communication</p>
-                <p>Duration: 1 day</p>
-                <p>Price: MYR 350</p>
-                <p>The aim of this workshop on the art of listening is to learn what the speaker has to say about a subject. Employees benefit about each other as they pay attention to each other. A workplace where workers are continually learning from one another will benefit from a free flow of ideas that are genuinely listened to.</p>
-            </div>
-        </div>
+        <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "etmp";
 
-        <div class="training-workshop-content">
-            <img src="images/leadership.jfif" alt="leadership">
-            <div>
-                <h3>First by default</h3>
-                <p>Leadership & Communication</p>
-                <p>Duration: 1 day</p>
-                <p>Price: MYR 350</p>
-                <p>The aim of this workshop on the art of listening is to learn what the speaker has to say about a subject. Employees benefit about each other as they pay attention to each other. A workplace where workers are continually learning from one another will benefit from a free flow of ideas that are genuinely listened to.</p>
-            </div>
-        </div>
+            $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+            if ($conn->connect_errno) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            $training_id = array();
+            
+            $user_id;
+            $form_id;
+            $user_name = $_SESSION["username"];
+
+            // Getting the user_id based on the current user session
+            $sql = "SELECT * FROM user_information WHERE username='$user_name'";
+
+            $result = $conn->query($sql);
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                $user_id = $row["id"];
+            }
+
+            // Getting the form id for this particular user
+            $sql = "SELECT * FROM request_form WHERE user_id='$user_id' AND request_status='In Progress'";
+            $result = $conn->query($sql);
+
+            if (!(mysqli_num_rows($result) == 0)) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $form_id = $row["form_id"];
+                }
+    
+                // Getting the training workshops that have been sent for this client user
+                $sql = "SELECT * FROM unconfirmed_training_workshop WHERE form_id='$form_id' AND training_status='unconfirmed'";
+                $result = $conn->query($sql);
+    
+                while ($row = mysqli_fetch_assoc($result)) {
+                    array_push($training_id, $row["training_id"]);
+                }
+
+                foreach ($training_id as $id) {
+                    $sql = "SELECT * FROM training_workshop WHERE training_id='$id'";
+                    $result = $conn->query($sql);
+    
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $type_id = $row["training_type_id"];
+                        $sql2 = "SELECT * FROM training_type WHERE training_type_id='$type_id'";
+                        $result2 = $conn->query($sql2);
+    
+                        while ($row2 = mysqli_fetch_assoc($result2)) {
+                            echo "<div class='training-workshop-content'>";
+                            echo "<img src='" . $row["training_image_link"] . "'/>";
+                            echo "<div>";
+                            echo "<h3>" . $row["training_name"] . "</h3>";
+                            echo "<p>" . $row2["training_type_name"] . "</p>";
+                            echo "<p>Duration: " . $row["training_duration"] . "</p>";
+                            echo "<p>Price: MYR " . $row["training_price"] . "</p>";
+                            echo "<p>" . $row["training_details"] . "</p>";
+                            echo "</div>";
+                            echo "</div>";        
+                        }
+                    }
+                }
+            }
+
+            $conn->close();
+        ?>
         
+
+
         <div id="user-interaction">
             <button class="cancel-request-button">Cancel request</button>
             <button class="request-alternatives-button">Request for more alternatives</button>
         </div>
     </div>
 
+    
+    <!-- Confirmed Section -->
     <div id="confirmed-section" class="content">
         <div class="training-workshop-content">
             <img src="images/leadership.jfif" alt="leadership">
