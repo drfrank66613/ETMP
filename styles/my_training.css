@@ -1,0 +1,260 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/*Use styles below for the navbar*/
+
+.title {
+    position: relative;
+    margin: 15px 15px;
+}
+
+.appname {
+color: #00a2ff;
+}
+
+.appname,
+.appdesc {
+display: inline;
+}
+
+.appdesc {
+right: 0;
+position: absolute;
+font-weight: 500;
+}
+
+[class="fa fa-sort-down"] {
+font-size: 19px;
+margin-left: 10px;
+}
+
+.navbar {
+background-color: #5f5f5f;
+overflow: hidden;
+}
+
+.navbar a {
+float: left;
+color: #f2f2f2;
+text-align: center;
+padding: 18px 16px;
+text-decoration: none;
+font-size: 15px;
+font-weight: bold;
+}
+
+.navbar a:hover {
+color: #ff9a00;
+}
+
+.navbar a.active {
+background-color: #00a2ff;
+color: white;
+}
+
+.navbar a.active:hover {
+color: white !important;
+}
+
+.rightnavbar {
+float: right;
+}
+
+.dropdown {
+float: right;
+overflow: hidden;
+}
+
+.dropdown .profile {
+font-weight: bold;
+font-size: 15px;
+border: none;
+outline: none;
+color: white;
+padding: 18px 16px;
+background-color: inherit;
+font-family: inherit;
+margin: 0;
+}
+
+.dropdown:hover .profile {
+color: #ff9a00 !important;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+z-index: 1;
+}
+
+.dropdown-content a {
+float: none;
+color: black;
+padding: 12px 20px;
+text-decoration: none;
+display: block;
+text-align: left;
+}
+
+.dropdown-content a:hover {
+background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+  /*End of styles for navbar*/
+
+
+/* Module In-pages Tab */
+
+#module-tab {
+    display: flex;
+    height: 100%;
+    margin: 1rem 1rem;
+    border: 1px solid rgba(212, 212, 212, 0.7);
+    border-width: thin;
+}
+
+.link {
+    flex: 1;
+    background-color: white;
+    color: black;
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    padding: 14px 16px;
+    font-size: 1.5rem;
+}
+
+.link:hover {
+    color: #0065ff !important;
+}
+
+
+/* Pending/In Progress and Confirmed Section */
+
+.content {
+    height: 100%;
+    margin: 1.5rem 1rem;
+    padding: 0;
+    display: none;
+    clear: both;
+    background-color: white;
+}
+
+.training-workshop-content {
+    display: flex;
+    padding: 1rem;
+    padding-left: 0;
+    padding-right: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.training-workshop-content:first-of-type {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.training-workshop-content div {
+    flex: 3;
+    margin-left: 1rem;
+}   
+
+.training-workshop-content p {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.training-workshop-content div h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.training-workshop-content div p:not(:last-child) {
+    margin-bottom: 0;
+}
+
+.training-workshop-content p:nth-last-child(2) {
+    
+    font-weight: bold;
+}
+
+.training-workshop-content p:last-child {
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.training-workshop-content div p:not(:first-of-type) {
+    font-size: 0.8rem;
+    color: #575655;
+}
+
+.content img {
+    flex: 0.5;  
+    width: 100%;
+    height: 150px;
+}
+
+
+/* User Interaction Button */
+#user-interaction {
+    display: flex;
+    margin: 1rem 1rem;
+}
+
+#user-interaction button{
+    flex: 1;
+}
+
+.cancel-request-button {
+    background-color: red;
+    padding: 1rem;
+    margin: 5rem;
+    cursor: pointer;
+    border: 2px solid red;
+    font-size: 1rem;
+    border-radius: 5px;
+    color: white;
+    transition-duration: 0.4s;
+}
+
+.cancel-request-button:hover {
+    background-color: white;
+    border: 2px solid red;
+    color: black;
+}
+
+.request-alternatives-button {
+    background-color: #0065ff;
+    padding: 1rem;
+    margin: 5rem;
+    border: 2px solid #0065ff;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    color: white;
+    transition-duration: 0.4s;
+}
+
+
+.request-alternatives-button:hover {
+    background-color: white;
+    border: 2px solid #0065ff;
+    color: black;
+}
+
+
