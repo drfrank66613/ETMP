@@ -194,7 +194,7 @@
                 <h4>What is the other reason</h4>
                 <textarea name="other-reason" cols="30" rows="10"></textarea>
             </div>
-            <button class="confirm-button-disabled" disabled>Confirm</button>
+            <button class="confirm-button-disabled" disabled>Cancel request</button>
         </div>
     </div>
 

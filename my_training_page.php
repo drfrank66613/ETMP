@@ -136,13 +136,13 @@
         <div class="cancel-modal">
             <div class="modal-content">
                 <span class="cancel-close-button">×</span>
-                <h2>Are you sure cancel this request?</h2>
+                <h2>Are you sure canceling this request?</h2>
                 <div class="custom-select">
                     <h4>Reason of cancellation</h4>
                     <select>
                         <option value="" disabled selected>Reason:</option>
-                        <option value="no response">No response for a week</option>
-                        <option value="full">The training workshop is full</option>
+                        <option value="not interested">Not interested anymore</option>
+                        <option value="full">Financial issue</option>
                         <option value="others">Others</option>
                     </select>
                 </div>
@@ -150,17 +150,44 @@
                     <h4>What is the other reason</h4>
                     <textarea name="other-reason" cols="30" rows="10"></textarea>
                 </div>
-                <button class="confirm-button-disabled" disabled>Confirm</button>
+                <button class="cancel-modal-confirm-button-disabled" disabled>Cancel request</button>
+            </div>
+        </div>
+
+        <div class="cancel-confirmed-modal">
+            <div class="modal-content">
+                <span class="cancel-confirmed-close-button">×</span>
+                <h4>The request has been canceled</h4>
+            </div>
+        </div>
+
+
+        <!-- Request for training alternatives Modal Box -->
+        <div class="request-modal">
+            <div class="modal-content">
+                <span class="request-close-button">×</span>
+                <h2>Request for more training alternatives</h2>
+                <div class="custom-select">
+                    <h4>Training types</h4>
+                    <select>
+                        <option value="Leadership & Communication skills" selected>Leadership &#38; Communication Skills</option>
+                        <option value="Negotiation skills">Negotiation Skills</option>
+                        <option value="Presentation skills">Presentation Skills</option>
+                    </select>
+                </div>
+                <button class="request-modal-confirm-button">Send request</button>
+            </div>
+        </div>
+
+        <div class="request-confirmed-modal">
+            <div class="modal-content">
+                <span class="request-confirmed-close-button">×</span>
+                <h4>The request for training alternatives have been successfully sent</h4>
             </div>
         </div>
     </div>
 
-    <div class="cancel-confirmed-modal">
-        <div class="modal-content">
-            <span class="cancel-confirmed-close-button">×</span>
-            <h4>The request has been canceled</h4>
-        </div>
-    </div>
+    
 
     
     <!-- Confirmed Section -->
@@ -225,17 +252,25 @@
             });
             
             if (!empty) {
-                $("select").on("change", function(e) {
+                var cancelModal = $(".cancel-modal");
+                var cancelConfirmationModal = $(".cancel-confirmed-modal");
+
+                var requestModal = $(".request-modal");
+                var requestConfirmationModal = $(".request-confirmed-modal");
+
+                var user_name = "<?php echo $user_name?>";
+
+                $(".cancel-modal select").on("change", function(e) {
                     var selectedOption = $(this).find("option:selected");
                     var selectedValue  = selectedOption.val();
                     var otherSection = $("#other-reason-section");
-                    var submitButton = $(".confirm-button-disabled");
+                    var submitButton = $(".cancel-modal-confirm-button-disabled");
                     
                     submitButton.prop("disabled", !selectedValue);
 
                     if (selectedValue) {
-                        submitButton.removeClass("confirm-button-disabled");
-                        submitButton.addClass("confirm-button");
+                        submitButton.removeClass("cancel-modal-confirm-button-disabled");
+                        submitButton.addClass("cancel-modal-confirm-button");
                     }
                     
                     if (selectedValue == "others") {
@@ -244,15 +279,10 @@
                     else {
                         otherSection.css("display", "none");
                     }
-
                 });
 
-                var cancelModal = $(".cancel-modal");
-                var cancelConfirmationModal = $(".cancel-confirmed-modal");
 
                 $(function() {
-                    var user_name = "<?php echo $user_name?>";
-
                     $(".cancel-request-button").on("click", function() {
                         cancelModal.toggleClass("show-modal");
                     });
@@ -261,8 +291,8 @@
                         cancelModal.toggleClass("show-modal");
                     });
 
-                    $(".confirm-button-disabled").on("click", function() {
-                        var option = $("select").children("option:selected");
+                    $(".cancel-modal-confirm-button-disabled").on("click", function() {
+                        var option = $(".cancel-modal select").children("option:selected");
                         var value = option.val();
                         var predefinedReason = "";
                         var otherReason = "";
@@ -289,6 +319,34 @@
                         cancelConfirmationModal.toggleClass("show-modal");
                     });
                 });
+
+                $(function() {
+                    $(".request-alternatives-button").on("click", function() {
+                        requestModal.toggleClass("show-modal");
+                    });
+
+                    $(".request-close-button").on("click", function() {
+                        requestModal.toggleClass("show-modal");
+                    });
+
+                    $(".request-modal-confirm-button").on("click", function() {
+                        var option = $(".request-modal select").children("option:selected");
+                        var value = option.val();
+                        var chosenTrainingType = "";
+            
+                        chosenTrainingType = option.text();
+            
+                        $.post("request_for_training_alternatives.php", {user_name: user_name, chosen_training_type: chosenTrainingType});
+                        
+                        requestModal.toggleClass("show-modal");
+                        requestConfirmationModal.toggleClass("show-modal");
+                    });
+
+                    $(".request-confirmed-close-button").on("click", function() {
+                        requestConfirmationModal.toggleClass("show-modal");
+                    });
+                });
+
             }
         });
     </script>
