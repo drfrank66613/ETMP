@@ -267,7 +267,6 @@
             $(function() {
                 var type = "<?php echo $training_type ?>"
 
-
                 $(".cancel-button").on("click", function() {
                     cancelModal.toggleClass("show-modal");
                 });
