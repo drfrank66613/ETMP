@@ -24,12 +24,20 @@
     <script>
         $(document).ready(function(){
             var calendar = $('#calendar').fullCalendar({
+                editable:true,
                 header:{
                     left:'prev',
                     center:'title',
                     right:'today next'
                 },
+                eventSources:[
+                        {
+                        url: 'calendar_event_management.php',
+                        color: 'yellow',
+                        textColor: 'black'
+                    }
                 
+                ] 
             });
         });
     </script>
