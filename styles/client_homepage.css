@@ -275,6 +275,7 @@ button:hover {
 
 .grid{
   border-radius: 3px;
+  padding-bottom: 10%;
   width: 80%;
   margin: 0 auto;
   display: flex;
@@ -294,8 +295,4 @@ button:hover {
 
 .item-title {
   color: #0065ff;
-}
-
-.empty{
-  height: 300px;
 }
