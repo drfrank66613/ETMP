@@ -33,7 +33,7 @@
             <div class="dropdown">
                 <button class="profile">Welcome, <?php echo $_SESSION['username']; ?><i class="fa fa-sort-down" ></i></button>
                 <div class="dropdown-content">
-                  <a href="#" id="editProfileBtn">Edit Profile</a>
+                  <a href="profile_page.php" id="editProfileBtn">Edit Profile</a>
                   <a href="logout_session.php?logout">Log Out</a>
                 </div>
               </div> 

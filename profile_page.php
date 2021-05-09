@@ -28,7 +28,7 @@
     <div class="navbar">
         <?php if($_SESSION['userLevel'] == 'Client') : ?>
             <a href="client_homepage.php">Home</a>
-            <a href="#news">My Training</a>
+            <a href="my_training_page.php">My Training</a>
             <a href="client_about_page.php">About</a>
             <a class="active" href="profile_page.php">Profile</a>
         <?php  endif ?>
