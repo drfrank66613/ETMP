@@ -31,7 +31,7 @@
                     right:'today next'
                 },
                 events: {
-                    url: 'http://localhost/ETMP/calendar_event_management.php',
+                    url: './calendar_event_management.php',
                     color: '#ff9a00',
                     textColor: 'black'
                 }
