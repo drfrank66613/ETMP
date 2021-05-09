@@ -21,18 +21,16 @@ $query = "SELECT training_workshop.training_name, training_itinerary.date
         AND itinerary_management.user_id = $id
         AND training_itinerary.training_id = training_workshop.training_id";
 
-$statement = $con->prepare($query);
-$statement->execute();
-$result = $statement->fetchAll();
-
+$result = mysqli_query($con, $query);
+$eventArray = array();
 foreach($result as $row){
     $event = array(
         'title' => $row["training_name"],
         'start' => $row["date"]
     );
-    array_push($events, $event);
+    array_push($eventArray, $event);
 }
+mysqli_free_result($result);
 
-
-echo json_encode($events);
+echo json_encode($eventArray);
 ?>

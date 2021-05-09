@@ -16,8 +16,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
     <!--End of it--> 
     <!--Use link below to display icons on the navbar-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!--End of it-->  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!--End of it-->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./styles/calendar_page.css">
 
@@ -30,14 +30,12 @@
                     center:'title',
                     right:'today next'
                 },
-                eventSources:[
-                        {
-                        url: 'calendar_event_management.php',
-                        color: 'yellow',
-                        textColor: 'black'
-                    }
+                events: {
+                    url: 'http://localhost/ETMP/calendar_event_management.php',
+                    color: '#ff9a00',
+                    textColor: 'black'
+                }
                 
-                ] 
             });
         });
     </script>

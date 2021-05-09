@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     
     <!--Use link below to display icons on the navbar-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!--End of it-->
     
     <link rel="stylesheet" href="./styles/profile_page.css">
@@ -82,20 +82,6 @@
         }
         if(strlen($regPassword) < 8 ){
             array_push($errors, "Minimum character for Password is 8");
-        }
-
-        $user_check_query = "SELECT * FROM user_information WHERE username='$username' OR email_address='$email' LIMIT 1";
-        $result = mysqli_query($con, $user_check_query);
-        $user = mysqli_fetch_assoc($result);
-        
-        if ($user) { 
-            if ($user['username'] === $username) {
-            array_push($errors, "Username already exists");
-            }
-
-            if ($user['email_address'] === $email) {
-            array_push($errors, "Email already exists");
-            }
         }
 
         if (count($errors) == 0) {
