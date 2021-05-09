@@ -50,12 +50,14 @@
                     <a href="request_form.php">
                         <button type="button" ><b>Request Now</b></button>
                     </a>
+                    <a href="#learn_more">
                     <button type="button" ><b>Learn More</b></button>
+                    </a>
                 </div>
         </div>
     </div>
     <!--General Information-->
-    <div class="grid">
+    <div class="grid" id="learn_more">
       <div class="grid-item">
         <i class="fas fa-mountain"></i>
         <h3 class="item-title">Discover New Frontiers</h3>
@@ -73,5 +75,34 @@
       </div>
     </div>
     <!---->
+    <!--Training Courses-->
+    <div class="wrapper">
+    <h1 class="courses-title">Training Courses</h1>
+
+    <div class="card-container">
+
+      <div class="card-item">
+        <a href="leadership.php">
+          <img class="item-image" src="images/leadership.jpg" alt="Leadership">
+          <h2 class="item-content">Leadership &#38; Communication Skills</h2>
+        </a>
+      </div>
+
+      <div class="card-item">
+        <a href ="negotiation.php">
+          <img class="item-image" src="images/interrogation.jpg" alt="Negotiation">
+          <h2 class="item-content">Negotiation Skills</h2>
+        </a>
+      </div>
+
+      <div class="card-item">
+        <a href="presentation.php">
+          <img class="item-image" src="images/presentation.jpg" alt="Presentation">
+          <h2 class="item-content">Presentation Skills</h2>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!--End-->
 </body>
 </html>
