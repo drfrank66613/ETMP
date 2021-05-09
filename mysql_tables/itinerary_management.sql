@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2021 at 09:25 AM
+-- Generation Time: May 09, 2021 at 03:21 PM
 -- Server version: 10.4.18-MariaDB
--- PHP Version: 7.3.27
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,6 +34,13 @@ CREATE TABLE `itinerary_management` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `itinerary_management`
+--
+
+INSERT INTO `itinerary_management` (`itinerary_management_id`, `user_id`, `training_itinerary_id`) VALUES
+(1, 2, 1);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -53,18 +60,7 @@ ALTER TABLE `itinerary_management`
 -- AUTO_INCREMENT for table `itinerary_management`
 --
 ALTER TABLE `itinerary_management`
-  MODIFY `itinerary_management_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `itinerary_management`
---
-ALTER TABLE `itinerary_management`
-  ADD CONSTRAINT `fk_training_itinerary_id` FOREIGN KEY (`training_itinerary_id`) REFERENCES `training_itinerary` (`training_itinerary_id`),
-  ADD CONSTRAINT `fk_user_information` FOREIGN KEY (`user_id`) REFERENCES `user_information` (`id`);
+  MODIFY `itinerary_management_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
