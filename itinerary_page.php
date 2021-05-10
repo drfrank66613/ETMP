@@ -1,5 +1,6 @@
 <!--Add this to your code to start the session-->
 <?php include('session_control.php') ?>
+<?php include('itinerary_management.php') ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,8 +45,8 @@
             <h2>Training Itinerary</h2>
             <div class="client-info">
                 <h3>Client Information</h3>
-                <p><b>Name</b> <span style="padding-left:113px">: George Kennedy</span></p>
-                <p><b>Phone Number</b><span style="padding-left:49px"> : 016211111</span></p>
+                <p><b>Name</b> <span style="padding-left:113px">: <?php echo $fname, " ", $lname; ?></span></p>
+                <p><b>Phone Number</b><span style="padding-left:49px"> : <?php echo $phone; ?></span></p>
                 <p><b>Date (Day 1)</b><span style="padding-left:70px"> : May 10, 2021</span></p>
                 <p><b>Date (Day 2)</b><span style="padding-left:70px"> : May 11, 2021</span></p>
             </div>

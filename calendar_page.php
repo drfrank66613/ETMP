@@ -34,6 +34,10 @@
                     url: './calendar_event_management.php',
                     color: '#ff9a00',
                     textColor: 'black'
+                },
+                eventConstraint: {
+                    start: moment().format('YYYY-MM-DD'),
+                    end: '2100-01-01'
                 }
                 
             });

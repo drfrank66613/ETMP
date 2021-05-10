@@ -130,3 +130,11 @@ body {
 .fc-basic-view .fc-day-number {
   padding: 10px;
 }
+
+td.fc-day-top.fc-past {
+  color: #a3a3a3;
+}
+
+td.fc-day.fc-past {
+  background-color: #eeeeee;
+}
