@@ -47,61 +47,40 @@
                 <h3>Client Information</h3>
                 <p><b>Name</b> <span style="padding-left:113px">: <?php echo $fname, " ", $lname; ?></span></p>
                 <p><b>Phone Number</b><span style="padding-left:49px"> : <?php echo $phone; ?></span></p>
-                <p><b>Date (Day 1)</b><span style="padding-left:70px"> : May 10, 2021</span></p>
-                <p><b>Date (Day 2)</b><span style="padding-left:70px"> : May 11, 2021</span></p>
+                <p><b>Date</b><span style="padding-left:122px"> : <?php echo date_format(date_create($date), "F d, Y"); ?></span></p>
             </div>
         </div>
         <div>
-            <h2>Day 1</h2>
+            <h2>Rundowns</h2>
             <table>
             <tr>
                 <th>Time</th>
                 <th>Activity</th>
             </tr>
             <tr>
-                <td>10:00</td>
+                <td><?php echo $time; ?></td>
                 <td>Opening Ceremony</td>
             </tr>
             <tr>
-                <td>12:00</td>
+                <td><?php echo $time = date('H:i',strtotime('+1 hour',strtotime($time))); ?></td>
                 <td>Break</td>
             </tr>
             <tr>
-                <td>13:00</td>
+                <td><?php echo $time = date('H:i',strtotime('+1 hour',strtotime($time))); ?></td>
                 <td>Training Session Starts</td>
             </tr>
             <tr>
-                <td>16:00</td>
+                <td><?php echo $time = date('H:i',strtotime($hours, strtotime($time))); ?></td>
                 <td>Closing Remarks</td>
             </tr>
             </table>
+            <div class="button-container">
+                <div class="center">
+                    <button type="button" ><b>Confirm</b></button>
+                    <button type="button" ><b>Modify</b></button>
+                </div>
+            </div>
         </div>
-        <div>
-            <h2>Day 2</h2>
-            <table>
-            <tr>
-                <th>Time</th>
-                <th>Activity</th>
-            </tr>
-            <tr>
-                <td>10:00</td>
-                <td>Mini Games</td>
-            </tr>
-            <tr>
-                <td>11:00</td>
-                <td>Break</td>
-            </tr>
-            <tr>
-                <td>12:00</td>
-                <td>Training Session Starts</td>
-            </tr>
-            <tr>
-                <td>15:00</td>
-                <td>Closing Remarks</td>
-            </tr>
-            </table>
-        </div>
-        
     </div>
 
     

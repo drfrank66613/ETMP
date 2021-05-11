@@ -151,3 +151,24 @@ th {
   text-align: center;
   padding: 8px;
 }
+
+.button-container {
+  margin: 30px 0;
+  position: relative;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+button {
+  margin: 8px 5px;
+  border-style: solid;
+  cursor: pointer;
+  opacity: 0.9;
+}
