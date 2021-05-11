@@ -1,0 +1,46 @@
+.modification-respond-section {
+    display: flex;
+    width: 100%;
+}
+
+.modification-respond-section button {
+    flex: 1;
+    margin: 1rem 2rem;
+}
+
+.reject-modification-button {
+    background-color: red;
+    padding: 1rem;
+    margin: 5rem;
+    cursor: pointer;
+    border: 2px solid red;
+    font-size: 1rem;
+    border-radius: 5px;
+    color: white;
+    transition-duration: 0.4s;
+}
+
+.reject-modification-button:hover {
+    background-color: white;
+    border: 2px solid red;
+    color: black;
+}
+
+.accept-modification-button {
+    background-color: rgb(3, 172, 3);
+    padding: 1rem;
+    margin: 5rem;
+    border: 2px solid rgb(3, 172, 3);
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    color: white;
+    transition-duration: 0.4s;
+}
+
+
+.accept-modification-button:hover {
+    background-color: white;
+    border: 2px solid rgb(3, 172, 3);
+    color: black;
+}
