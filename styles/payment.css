@@ -1,0 +1,191 @@
+*{
+  box-sizing: border-box;
+}
+
+html{
+  height: 100%;
+}
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  margin: 0;
+  height: 100%;
+}
+
+.title {
+  position: relative;
+  margin: 15px 15px;
+}
+
+.appname {
+  color: #00a2ff;
+}
+
+.appname,
+.appdesc {
+  display: inline;
+}
+
+.appdesc {
+  right: 0;
+  position: absolute;
+  font-weight: 500;
+}
+
+[class="fa fa-sort-down"] {
+  font-size: 19px;
+  margin-left: 10px;
+}
+
+.navbar {
+  background-color: #5f5f5f;
+  overflow: hidden;
+}
+
+.navbar a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 18px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: #ff9a00;
+}
+
+.navbar a.active {
+  background-color: #00a2ff;
+  color: white;
+}
+
+.navbar a.active:hover {
+  color: white !important;
+}
+
+.rightnavbar {
+  float: right;
+}
+
+.dropdown {
+  float: right;
+  overflow: hidden;
+}
+
+.dropdown .profile {
+  font-weight: bold;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 18px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown:hover .profile {
+  color: #ff9a00 !important;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/**End**/
+
+.wrap, .split-left, .split-right{
+  width: 100%;
+}
+
+.wrap, .payment-inputs{
+  display: block;
+}
+
+.wrap, .split-wrap{
+  height: 100%;
+}
+
+.wrap{
+  overflow: auto;
+}
+
+.split-wrap, .inline{
+  display: flex;
+}
+
+.split-left, .payment-inputs{
+  background-color: #ffffff;
+}
+.split-left{
+  float: left;
+  padding-left: 15em;
+}
+
+.split-right, .payment-wrap{
+  background-color: #fafafa;
+}
+.split-right{
+  float: right;
+  padding-right: 15em;
+  border-left: #e1e1e1 solid 1px;
+}
+
+.payment-wrap, .payment-inputs{
+  border-radius: 5px;
+  border: 1px solid #d9d9d9;
+  padding: 1em;
+}
+.payment-wrap{
+  margin-top: 10em;
+  margin-left: auto;
+  margin-right: auto;
+  color: #545454;
+  width: 25%;
+}
+
+.payment-container{
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+.payment-items{
+  padding: 0.5em;
+}
+
+.payment-inputs{
+  min-height: 2em;
+  min-width: 100%;
+}
+
+.inline{
+  flex-direction: row;
+}
+
+.inline .payment-items{
+  flex-grow: 1;
+}
