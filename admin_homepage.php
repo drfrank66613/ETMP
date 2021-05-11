@@ -15,8 +15,8 @@
     <!--Use link below to display icons on the navbar-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!--End of it-->
-
     <link rel="stylesheet" href="./styles/admin_homepage.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body>
     <!--Use the title & navbar bar for all admin pages-->
@@ -40,8 +40,16 @@
     </div>
     <!---->
 
-    <section id="requests-management-section">
-        <h1 id="Request-heading">Request Handler System</h1>
+    <!-- In Page Module Tab -->
+    <div id="module-tab">
+        <button class="link" id="openByDefault" value="requests-management-section">Requests</button>
+        <button class="link" value="training-itinerary-management-section">Training Itinerary</button>
+    </div>
+
+
+
+
+    <section id="requests-management-section" class="content">
         <?php
             $servername = "localhost";
             $username = "root";
@@ -58,14 +66,14 @@
             $result = $conn->query($sql);
 
             mysqli_num_rows($result);
-            $headers = array("First Name", "Last Name", "Selected Training Type", "Status", "Date Created");
+            $headers = array("Form ID", "First Name", "Last Name", "Selected Training Type", "Request Status", "Date Created");
 
 
-            $numOfHeaders = 5;
+            $numOfHeaders = 6;
 
 
             if (($result)) {
-                echo "<table class='request-table'> <tr>";
+                echo "<table class='management-table'> <tr>";
 
                 if (mysqli_num_rows($result) > 0) {
                     for ($i = 0; $i < $numOfHeaders; $i++) {
@@ -75,7 +83,8 @@
 
                     while ($rows = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                         echo "<tr>";
-
+                        
+                        echo "<td>" . $rows["form_id"] . "</td>";
                         echo "<td>" . $rows['fname'] . "</td>";
                         echo "<td>" . $rows['lname'] . "</td>";
                         $data_int = (int)$rows['training_type_id'];
@@ -90,18 +99,82 @@
                         echo "<td>" . $rows['request_status'] . "</td>";
                         echo "<td>" . $rows['request_date'] . "</td>";
 
-                        echo "<td><button class='button-training-request' name='lala' type='submit'" . " value= " . $rows['form_id'] . ">Manage</button></td>";
+                        echo "<td><button class='button-training-request' type='submit'" . " value= " . $rows['form_id'] . ">Manage</button></td>";
                         echo "</tr>";
                     }
-                }
-                else {
-                    echo "No Results found!";
                 }
                 echo "</table>";
             }
         ?>
 
     </section>
+
+
+    <section id="training-itinerary-management-section" class="content">
+        <?php
+            $sql = "SELECT ti.training_itinerary_id, us.username, ti.status, f.form_id, ti.date, ti.time FROM itinerary_management im 
+                    INNER JOIN training_itinerary ti ON im.training_itinerary_id = ti.training_itinerary_id
+                    INNER JOIN request_form f ON im.user_id = f.user_id
+                    INNER JOIN user_information us ON us.id = im.user_id";
+
+            $result = $conn->query($sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                $headers = array("Form ID", "User Name", "Training Start Date", "Training Start Time" ,"Itinerary Status");
+                
+                echo "<table class='management-table'> <tr>";
+
+                for ($i = 0; $i < sizeof($headers); $i++) {
+                    echo "<th>" . $headers[$i] . "</th>";
+                }
+
+                echo "</tr>";
+
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>";
+                        
+                    echo "<td>" . $row["form_id"] . "</td>";
+                    echo "<td>" . $row['username'] . "</td>";
+                    echo "<td>" . $row['date'] . "</td>";
+                    echo "<td>" . $row['time'] . "</td>";
+                    echo "<td>" . $row['status'] . "</td>";
+                    echo "<td><button class='button-training-itinerary' type='submit'" . " value= " . $row['training_itinerary_id'] . ">Manage</button></td>";
+
+                    echo "</tr>";
+                }
+                echo "</table>";
+            }   
+        ?>
+    </section>
     <script src="scripts/requestHandlerSystem.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var defaultOpenSection = $("#openByDefault").attr("value");
+
+            $(".content").css("display", "none");
+
+            $("#openByDefault").css("border-bottom", "5px #0065ff solid");
+            $("#" + defaultOpenSection).css("display", "block");
+            $("#openByDefault").css("background-color", "white");
+            $("#openByDefault").css("font-weight", "bold");
+            $("#openByDefault").css("color", "#0065ff");
+
+            $(".link").on("click", function() {
+                $(".content").css("display", "none");
+                var section = $(this).attr("value");
+
+                $(".link").css("border-bottom", "none");
+                $(".link").css("font-weight", "normal");
+                $(".link").css("color", "black");
+
+                $("#" + section).css("display", "block");
+                $(this).css("border-bottom", "5px #0065ff solid");
+                $(this).css("font-weight", "bold");
+                $(this).css("color", "#0065ff");
+            
+            });
+        });
+    </script>
 </body>
 </html>

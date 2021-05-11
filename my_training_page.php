@@ -251,6 +251,8 @@
             var defaultOpenSection = $("#openByDefault").attr("value");
             var empty = "<?php echo $empty; ?>";
 
+            $(".content").css("display", "none");
+
             $("#openByDefault").css("border-bottom", "5px #0065ff solid");
             $("#" + defaultOpenSection).css("display", "block");
             $("#openByDefault").css("background-color", "white");
