@@ -116,68 +116,75 @@ body{
 .dropdown:hover .dropdown-content {
   display: block;
 }
-/**End**/
+/**--End--**/
+
+.errors {
+  padding-left: 10px;
+  border: 1px solid #a94442;
+  border-radius: 5px;
+  background: #f2dede;
+  text-align: left;
+}
 
 .wrap, .split-left, .split-right{
   width: 100%;
 }
 
-.wrap, .payment-inputs{
+.wrap, .payment-inputs, .button-submit, .button-cancel{
   display: block;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .wrap, .split-wrap{
   height: 100%;
 }
 
-.wrap{
-  overflow: auto;
-}
 
 .split-wrap, .inline{
   display: flex;
 }
 
-.split-left, .payment-inputs{
+.split-left, .payment-inputs, .checkout-container{
   background-color: #ffffff;
 }
 .split-left{
   float: left;
-  padding-left: 15em;
+
 }
 
 .split-right, .payment-wrap{
   background-color: #fafafa;
 }
+
 .split-right{
   float: right;
-  padding-right: 15em;
+
   border-left: #e1e1e1 solid 1px;
 }
 
 .payment-wrap, .payment-inputs{
-  border-radius: 5px;
   border: 1px solid #d9d9d9;
-  padding: 1em;
-}
-.payment-wrap{
-  margin-top: 10em;
-  margin-left: auto;
-  margin-right: auto;
-  color: #545454;
-  width: 25%;
 }
 
-.payment-container{
-  margin-top: 0.1em;
-  margin-bottom: 0.1em;
+.payment-wrap, .payment-inputs, .button-submit, .button-cancel{
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.payment-wrap{
+  float: right;
+  margin-top: 10em;
+  margin-left: auto;
+  margin-right: 5em;
+  width: 25%;
+  color: #545454;
 }
 
 .payment-items{
   padding: 0.5em;
 }
 
-.payment-inputs{
+.payment-inputs, .button-submit, .button-cancel{
   min-height: 2em;
   min-width: 100%;
 }
@@ -188,4 +195,48 @@ body{
 
 .inline .payment-items{
   flex-grow: 1;
+}
+
+.button-submit, .button-cancel{
+  background-color: #000;
+  font-weight: bold;
+  color: #FFF;
+  border-style: none;
+  box-shadow: 0px 3px 13px rgba(0, 0, 0, 0.3);
+}
+
+.button-submit:hover, .button-cancel:hover{
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.checkout-container{
+  padding: 1em;
+  float: left;
+  margin-top: 15.5em;
+  margin-left: 5em;
+  margin-right: auto;
+  min-width: 50%;
+  border-radius: 5px;
+  border: 1px solid #d9d9d9;
+}
+
+.checkout-items{
+  max-width: 30em;
+  display: flex;
+  flex-direction: row;
+}
+
+.image-container{
+  display: block;
+}
+
+.checkout-image{
+  max-height: 10em;
+  border-radius: 5px;
+}
+
+.checkout-details{
+  display: block;
+  margin-left: 2em;
 }
