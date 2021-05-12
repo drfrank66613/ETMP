@@ -40,6 +40,7 @@
         <?php  endif ?>
         
         <div class="rightnavbar">
+            <a class="calendar" href="calendar_page.php"><i class="fa fa-calendar"></i></a>
             <a class="notif" href="notification.php"><i class="fa fa-bell"></i></a>
             <div class="dropdown">
                 <button class="profile">Welcome, <?php echo $_SESSION['username']; ?><i class="fa fa-sort-down" ></i></button>

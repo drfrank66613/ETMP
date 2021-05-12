@@ -116,7 +116,6 @@ body {
   margin: auto;
   width: 50%;
   border: thin solid black;
-  padding: 20px;
 }
 
 p,
@@ -133,10 +132,36 @@ h2 {
   background-color: #00a2ff;
   padding: 10px 0;
   color: white;
+  margin: auto;
+}
+
+.split-container {
+  width: 100%;
 }
 
 .client-info {
+  width: 50%;
+  float: left;
   padding-left: 30px;
+  height: 150px;
+}
+
+.itinerary-status {
+  padding-top: 60px;
+  padding-right: 25px;
+  margin-left: 50%;
+  height: 130px;
+  text-align: right;
+}
+
+.itinerary-status h4,
+h5 {
+  word-wrap: break-word;
+  display: inline;
+}
+
+.normal-heading {
+  font-weight: normal;
 }
 
 table {
@@ -166,9 +191,87 @@ th {
   transform: translate(-50%, -50%);
 }
 
-button {
-  margin: 8px 5px;
+input[type="submit"],
+input[type="button"] {
+  padding: 7px 50px;
+  margin: 0 5px;
   border-style: solid;
   cursor: pointer;
+  font-weight: bold;
+  border: none;
+  color: white;
+  border-radius: 2px;
+}
+
+.modif-form {
+  margin: 15px auto;
+  width: 50%;
+}
+
+input[type="text"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 18px 0;
+  border-radius: 5px;
+  border: none;
+  background: #e9e9e9;
+}
+
+button {
+  background-color: #0065ff;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
   opacity: 0.9;
+  border-radius: 5px;
+  display: inline;
+}
+
+.cancelbtn {
+  padding: 10px 20px;
+  background-color: #ff5e00;
+}
+
+.cancelbtn:hover,
+.submitbtn:hover {
+  padding: 10px 20px;
+  opacity: 80%;
+}
+
+input[type="submit"]:hover {
+  background-color: #3ab7ff;
+}
+
+input[type="button"]:hover {
+  background-color: #ffbd5b;
+}
+
+input:disabled[type="submit"]:hover,
+input:disabled[type="submit"] {
+  background-color: #696969;
+  cursor: default;
+}
+
+input:disabled[type="button"]:hover,
+input:disabled[type="button"] {
+  background-color: #696969;
+  cursor: default;
+}
+
+input[type="submit"] {
+  background-color: #00a2ff;
+}
+
+input[type="button"] {
+  background-color: #ff9a00;
+}
+
+.modif-container {
+  margin: 100px auto;
+  width: 50%;
+  border: thin solid black;
 }

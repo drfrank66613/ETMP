@@ -14,6 +14,10 @@
     <!--End of it-->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./styles/itinerary_page.css">
+    <script src="scripts/requestForm.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
     
 </head>
 <body>
@@ -40,14 +44,17 @@
     </div>
     <!---->
 
-    <div class="container">
-        <div>
+    <div id="contain" class="container">
+        <div class="split-container">
             <h2>Training Itinerary</h2>
             <div class="client-info">
                 <h3>Client Information</h3>
                 <p><b>Name</b> <span style="padding-left:113px">: <?php echo $fname, " ", $lname; ?></span></p>
                 <p><b>Phone Number</b><span style="padding-left:49px"> : <?php echo $phone; ?></span></p>
                 <p><b>Date</b><span style="padding-left:122px"> : <?php echo date_format(date_create($date), "F d, Y"); ?></span></p>
+            </div>
+            <div class="itinerary-status">
+                <h4>Itinerary Status <br><h4 class="normal-heading"><?php echo $training_itinerary_status; ?></h4></h4>
             </div>
         </div>
         <div>
@@ -62,26 +69,71 @@
                 <td>Opening Ceremony</td>
             </tr>
             <tr>
-                <td><?php echo $time = date('H:i',strtotime('+1 hour',strtotime($time))); ?></td>
+                <td><?php echo $time = date('h:i A',strtotime('+1 hour',strtotime($time))); ?></td>
                 <td>Break</td>
             </tr>
             <tr>
-                <td><?php echo $time = date('H:i',strtotime('+1 hour',strtotime($time))); ?></td>
+                <td><?php echo $time = date('h:i A',strtotime('+1 hour',strtotime($time))); ?></td>
                 <td>Training Session Starts</td>
             </tr>
             <tr>
-                <td><?php echo $time = date('H:i',strtotime($hours, strtotime($time))); ?></td>
+                <td><?php echo $time = date('h:i A',strtotime($hours, strtotime($time))); ?></td>
                 <td>Closing Remarks</td>
             </tr>
             </table>
             <div class="button-container">
                 <div class="center">
-                    <button type="button" ><b>Confirm</b></button>
-                    <button type="button" ><b>Modify</b></button>
+                <form action="itinerary_page.php" method="POST">
+                    <input type="submit" name="confirm" value="Confirm" <?php if ($training_itinerary_status == 'Confirmed' or $training_itinerary_status == 'Waiting for modification'){ ?> disabled <?php   } ?>>
+                    <input onclick="showDiv()" type="button" value="Modify" <?php if ($training_itinerary_status == 'Confirmed' or $training_itinerary_status == 'Waiting for modification'){ ?> disabled <?php   } ?>>
+                </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function showDiv(){
+            document.getElementById('modif-contain').style.display = "block";
+            window.location = '#modif-contain';
+        }
+    </script>
+
+    <div id="modif-contain" class="modif-container" style="display:none";>
+        <h2>Itinerary Modification</h2>
+        <form class="modif-form" action="itinerary_page.php" method="POST">
+            <label for="time"><b>Start Time</b></label>
+            <input type="text" name="time" id="timepicker" value="<?php echo $startTime; ?>">
+
+            <label for="date"><b>Date</b></label>
+            <input type="date" name="date" value="<?php echo $date; ?>">
+
+            <button type="submit" name="modificationForm" value="Submit" class="submitbtn"><b>Submit</b></button>
+
+            <button onclick="closeDiv()" type="button" class="cancelbtn"><b>Cancel</b></button>
+        </form>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+            <script type="text/javascript">
+            $(document).ready(function(){
+                $('#timepicker').timepicker({
+                timeFormat: 'h:mm p',
+                interval: 60,
+                minTime: '10:00am',
+                maxTime: '4:00pm',
+                dynamic: false,
+                dropdown: true,
+                scrollbar: true
+                });
+            });
+            </script>
+    </div>
+
+    <script>
+        function closeDiv(){
+            document.getElementById('modif-contain').style.display = "none";
+            window.location = '#contain';
+        }
+    </script>
 
     
 
