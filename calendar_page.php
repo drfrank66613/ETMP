@@ -38,6 +38,12 @@
                 eventConstraint: {
                     start: moment().format('YYYY-MM-DD'),
                     end: '2100-01-01'
+                },
+                eventClick: function(calEvent, jsEvent, view) {
+                    alert('Training: ' + calEvent.title + 
+                            '\nDate: ' + calEvent.start.format('YYYY-MM-DD') +
+                            '\nTime: ' + calEvent.time);
+                    
                 }
                 
             });
