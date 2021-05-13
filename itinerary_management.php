@@ -63,19 +63,22 @@ if($duration == '4'){
 if(isset($_POST['confirm'])){
     $content = $_SESSION['username'] . ' has confirmed his/her Training Itinerary';
     $notif_query = "INSERT INTO notifications (user_id, title, content) 
-            VALUES (1, 'Itinerary Confirmed', '$content')";
+            VALUES (1, 'Itinerary Confirmed', '$content'),
+            ('$id', 'Itinerary Confirmed', 'Your Training Itinerary has been confirmed')";
     $changeStatus_query = "UPDATE training_itinerary 
                         SET training_itinerary_status='Confirmed'
                         WHERE training_itinerary_id = $training_itinerary_id";
+
     $notif_result = mysqli_query($con, $notif_query);
     $changeStatus_result = mysqli_query($con, $changeStatus_query);
+
     if($notif_result && $changeStatus_result){
         echo '<script type="text/javascript">'; 
         echo 'alert("Your Training Itinerary has been confirmed");'; 
         echo 'window.location.href = "training_details_page.php";';
         echo '</script>';
     } else{
-        echo "ERROR: Could not able to execute $notif_result & $changeStatus_result. " . mysqli_error($con);
+        echo "ERROR: Could not able to execute $notif_result & $changeStatus_result" . mysqli_error($con);
     }
 
 }
