@@ -18,7 +18,7 @@ $id = $value->id;
 $query = "SELECT request_form.fname, request_form.lname, request_form.phone, 
                 training_itinerary.current_used_date, training_itinerary.current_used_time,
                 training_workshop.training_duration, training_itinerary.training_itinerary_id,
-                training_itinerary.training_itinerary_status, request_form.form_id
+                training_itinerary.training_itinerary_status, request_form.request_status
         FROM itinerary_management, training_itinerary, training_workshop, request_form
         WHERE itinerary_management.training_itinerary_id = training_itinerary.training_itinerary_id 
         AND itinerary_management.user_id = $id
@@ -46,7 +46,7 @@ foreach($result as $row){
     $duration = $row["training_duration"];
     $training_itinerary_id = $row["training_itinerary_id"];
     $training_itinerary_status = $row["training_itinerary_status"];
-    $request_form_status = $row["form_id"];
+    $request_form_status = $row["request_status"];
 }
 mysqli_free_result($result);
 $duration = substr($duration, 0,1);
