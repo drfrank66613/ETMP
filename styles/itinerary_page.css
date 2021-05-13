@@ -118,16 +118,19 @@ body {
   border: thin solid black;
 }
 
-p,
+.container p,
+.modif-container p,
 td {
   font-size: 14px;
 }
 
-h3 {
+.container h3,
+.modif-container h3 {
   color: #ff9a00;
 }
 
-h2 {
+.container h2,
+.modif-container h2 {
   text-align: center;
   background-color: #00a2ff;
   padding: 10px 0;
@@ -150,6 +153,7 @@ h2 {
   padding-top: 60px;
   padding-right: 25px;
   margin-left: 50%;
+  margin-bottom: 2rem;
   height: 130px;
   text-align: right;
 }
@@ -185,6 +189,7 @@ th {
 .center {
   margin: 0;
   position: absolute;
+  width: fit-content;
   top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
@@ -218,7 +223,13 @@ input[type="date"] {
   background: #e9e9e9;
 }
 
-button {
+.cancelbtn {
+  padding: 10px 20px; 
+  background-color: #ff5e00 !important;
+}
+
+.container button,
+.modif-container button {
   background-color: #0065ff;
   color: white;
   padding: 10px 20px;
@@ -229,11 +240,6 @@ button {
   opacity: 0.9;
   border-radius: 5px;
   display: inline;
-}
-
-.cancelbtn {
-  padding: 10px 20px;
-  background-color: #ff5e00;
 }
 
 .cancelbtn:hover,
@@ -270,8 +276,27 @@ input[type="button"] {
   background-color: #ff9a00;
 }
 
+input[name="reject"] {
+  background-color: #ff9a00 !important;
+}
+
+input[name="reject"]:hover {
+  background-color: #ffbd5b !important;
+}
+
+input:disabled[name="reject"]:hover,
+input:disabled[name="reject"] {
+  background-color: #696969 !important;
+  cursor: default !important;
+}
+
 .modif-container {
   margin: 100px auto;
   width: 50%;
   border: thin solid black;
+}
+
+
+.modification_request {
+  color: red;
 }

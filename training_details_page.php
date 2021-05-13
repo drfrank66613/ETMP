@@ -1,5 +1,6 @@
 <!--Add this to your code to start the session-->
 <?php include('session_control.php') ?>
+<?php include('itinerary_management.php') ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,11 +10,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Training Details</title>
     <link rel="stylesheet" href="styles/training_details_page.css">
+    <link rel="stylesheet" href="styles/itinerary_page.css">
     <!--Use link below to display icons on the navbar-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!--End of it-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 </head>
 <body>
     <!--Use the title & navbar bar for all client pages-->
@@ -100,7 +105,6 @@
         <h3>Description</h3>
         <hr/>
         <p><?php echo $description; ?></p>
-
 
         <!-- Cancel request as operator Modal Box -->
         <div class="cancel-modal">
@@ -209,6 +213,98 @@
                 });
             });
         </script>
+    </div>
+    
+    <div class="training-section">
+        <div id="contain" class="container">
+                <div class="split-container">
+                    <h2>Training Itinerary</h2>
+                    <div class="client-info">
+                        <h3>Client Information</h3>
+                        <p><b>Name</b> <span style="padding-left:113px">: <?php echo $fname, " ", $lname; ?></span></p>
+                        <p><b>Phone Number</b><span style="padding-left:49px"> : <?php echo $phone; ?></span></p>
+                        <p><b>Date</b><span style="padding-left:122px"> : <?php echo date_format(date_create($date), "F d, Y"); ?></span></p>
+                    </div>
+                    <div class="itinerary-status">
+                        <h4>Itinerary Status <br><h4 class="normal-heading"><?php echo $training_itinerary_status; ?></h4></h4>
+                    </div>
+                </div>
+                <div>
+                    <h2>Rundowns</h2>
+                    <table>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                    </tr>
+                    <tr>
+                        <td><?php echo $time; ?></td>
+                        <td>Opening Ceremony</td>
+                    </tr>
+                    <tr>
+                        <td><?php echo $time = date('h:i A',strtotime('+1 hour',strtotime($time))); ?></td>
+                        <td>Break</td>
+                    </tr>
+                    <tr>
+                        <td><?php echo $time = date('h:i A',strtotime('+1 hour',strtotime($time))); ?></td>
+                        <td>Training Session Starts</td>
+                    </tr>
+                    <tr>
+                        <td><?php echo $time = date('h:i A',strtotime($hours, strtotime($time))); ?></td>
+                        <td>Closing Remarks</td>
+                    </tr>
+                    </table>
+                    <div class="button-container">
+                        <div class="center">
+                        <form action="training_details_page.php" method="POST">
+                            <input type="submit" name="confirm" value="Confirm" <?php if ($training_itinerary_status == 'Confirmed' or $training_itinerary_status == 'Waiting for modification'){ ?> disabled <?php   } ?>>
+                            <input onclick="showDiv()" type="button" value="Modify" <?php if ($training_itinerary_status == 'Confirmed' or $training_itinerary_status == 'Waiting for modification'){ ?> disabled <?php   } ?>>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                function showDiv(){
+                    document.getElementById('modif-contain').style.display = "block";
+                    window.location = '#modif-contain';
+                }
+            </script>
+
+            <div id="modif-contain" class="modif-container" style="display:none";>
+                <h2>Itinerary Modification</h2>
+                <form class="modif-form" action="training_details_page.php" method="POST">
+                    <label for="time"><b>Start Time</b></label>
+                    <input type="text" name="time" id="timepicker" value="<?php echo $startTime; ?>">
+
+                    <label for="date"><b>Date</b></label>
+                    <input type="date" name="date" value="<?php echo $date; ?>">
+
+                    <button type="submit" name="modificationForm" value="Submit" class="submitbtn"><b>Submit</b></button>
+
+                    <button onclick="closeDiv()" type="button" class="cancelbtn"><b>Cancel</b></button>
+                </form>
+                    <script type="text/javascript">
+                    $(document).ready(function(){
+                        $('#timepicker').timepicker({
+                        timeFormat: 'h:mm p',
+                        interval: 60,
+                        minTime: '10:00am',
+                        maxTime: '4:00pm',
+                        dynamic: false,
+                        dropdown: true,
+                        scrollbar: true
+                        });
+                    });
+                </script>
+            </div>
+
+            <script>
+                function closeDiv(){
+                    document.getElementById('modif-contain').style.display = "none";
+                    window.location = '#contain';
+                }
+            </script>
     </div>
 </body>
 </html>

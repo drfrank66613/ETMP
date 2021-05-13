@@ -112,7 +112,7 @@
 
     <section id="training-itinerary-management-section" class="content">
         <?php
-            $sql = "SELECT ti.training_itinerary_id, us.username, ti.status, f.form_id, ti.date, ti.time FROM itinerary_management im 
+            $sql = "SELECT ti.training_itinerary_id, us.username, ti.training_itinerary_status, f.form_id, ti.current_used_date, ti.current_used_time FROM itinerary_management im 
                     INNER JOIN training_itinerary ti ON im.training_itinerary_id = ti.training_itinerary_id
                     INNER JOIN request_form f ON im.user_id = f.user_id
                     INNER JOIN user_information us ON us.id = im.user_id";
@@ -135,9 +135,9 @@
                         
                     echo "<td>" . $row["form_id"] . "</td>";
                     echo "<td>" . $row['username'] . "</td>";
-                    echo "<td>" . $row['date'] . "</td>";
-                    echo "<td>" . $row['time'] . "</td>";
-                    echo "<td>" . $row['status'] . "</td>";
+                    echo "<td>" . $row['current_used_date'] . "</td>";
+                    echo "<td>" . $row['current_used_time'] . "</td>";
+                    echo "<td>" . $row['training_itinerary_status'] . "</td>";
                     echo "<td><button class='button-training-itinerary' type='submit'" . " value= " . $row['training_itinerary_id'] . ">Manage</button></td>";
 
                     echo "</tr>";
