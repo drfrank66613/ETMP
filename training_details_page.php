@@ -62,7 +62,7 @@
                 }
 
                 $chosen_training = $_COOKIE["training_name"];
-                $status = $_COOKIE["training_status"];
+                $status = $_COOKIE["status"];
 
                 $user_name = $_SESSION["username"];
                 $description;
@@ -206,11 +206,11 @@
                         
                         cancelModal.toggleClass("show-modal");
                         cancelConfirmationModal.toggleClass("show-modal");
-                        //document.location = "admin_homepage.php";
                     });
 
                     $(".cancel-confirmed-close-button").on("click", function() {
                         cancelConfirmationModal.toggleClass("show-modal");
+                        document.location = "client_homepage.php";
                     });
                 });
             });

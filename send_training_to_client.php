@@ -36,26 +36,26 @@
         $training_id = array();
 
         foreach($training_workshops as $training) {
-            echo $training;
             $sql = "SELECT * FROM training_workshop WHERE training_name = '$training'";
             $result = $conn->query($sql);
 
             if (mysqli_num_rows($result) == 0) {
-                echo "empty";
             }
             else {
                 while ($row = mysqli_fetch_assoc($result)) {
                     array_push($training_id, $row["training_id"]);
-                    echo $row["training_id"];
                 }
             }
         }
-
+        $track = 0;
         foreach ($training_id as $id) {
             $sql = "INSERT INTO unconfirmed_training_workshop (form_id, training_id, training_status) VALUES ('$request_id', '$id', 'unconfirmed')";
             
             if ($conn->query($sql) == TRUE) {
-                echo "Trainings have been successfully sent to the client";
+                if ($track == 0) {
+                    echo "Trainings have been successfully sent to the client";
+                    $track++;
+                }
                 $sql = "UPDATE request_form SET request_status='In Progress' WHERE form_id = $request_id";
                 $conn->query($sql);
             }
