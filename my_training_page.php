@@ -253,6 +253,8 @@
             $("#openByDefault").css("font-weight", "bold");
             $("#openByDefault").css("color", "#0065ff");
 
+            document.cookie = "status=" + "unconfirmed" + "; path=/";
+
             $(".link").on("click", function() {
                 $(".content").css("display", "none");
                 var section = $(this).attr("value");
@@ -264,6 +266,7 @@
 
                 $.post("change_status.php", {current_section: section} , function(data) {
                     document.cookie = "status=" + data + "; path=/";
+                    console.log(data);
                 });
             
 
