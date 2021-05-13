@@ -1,3 +1,5 @@
+<?php include('session_control.php') ?>
+
 <?php
      $servername = "localhost";
      $username = "root";
@@ -28,13 +30,36 @@
             $sql = "INSERT INTO notifications (user_id, title, content) VALUES ($id, 'Registered Training Cancelation', '$user_name cancel registered training called $training_name because of $cancel_reason')";
             $conn->query($sql);
         }
+        echo $_SESSION['username'];
+
+        $stmt = $conn->prepare("SELECT id FROM user_information WHERE username=? limit 1");
+        $stmt->bind_param('s', $_SESSION['username']);
+        $stmt->execute();
+        $tempResult = $stmt->get_result();
+        $value = $tempResult->fetch_object();
+        $id = $value->id;
+
+        echo $id;
         
-        if (isset($_COOKIE["request_id"])) {
-            $request_id = $_COOKIE["request_id"];
-            $sql = "UPDATE request_form SET request_status='Canceled' WHERE form_id = $request_id";
-            $conn->query($sql);
+        $sql = "SELECT user_information.id, training_itinerary.training_itinerary_id, training_itinerary.form_id, request_form.form_id  
+                FROM itinerary_management, user_information, training_itinerary, request_form
+                WHERE itinerary_management.training_itinerary_id = training_itinerary.training_itinerary_id
+                AND itinerary_management.user_id = $id";
+        $result = $conn->query($sql);
+
+        $itinerary_id;
+        $request_id;
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            $itinerary_id = $row["training_itinerary_id"];
+            $request_id = $row["form_id"];
         }
 
+        $sql = "UPDATE request_form SET request_status='Canceled' WHERE form_id = $request_id";
+        $conn->query($sql);
+        
+        $sql = "UPDATE training_itinerary SET training_itinerary_status = 'Canceled' WHERE training_itinerary_id = $itinerary_id";
+        $conn->query($sql);
         /* Should change the status of training itinerary from default to "Canceled" here */
         /* Should wait from Abeng */
         

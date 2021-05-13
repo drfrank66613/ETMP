@@ -211,7 +211,9 @@
                             $.post("cancel_registered_training.php", {user_name: userName, cancel_reason: otherReason, training_name: trainingName});
                         }
                         else {
-                            $.post("cancel_registered_training.php", {user_name: userName, cancel_reason: predefinedReason, training_name: trainingName});
+                            $.post("cancel_registered_training.php", {user_name: userName, cancel_reason: predefinedReason, training_name: trainingName}, function(data) {
+                                console.log(data);
+                            });
                         }
                         
                         cancelModal.toggleClass("show-modal");
@@ -220,7 +222,7 @@
 
                     $(".cancel-confirmed-close-button").on("click", function() {
                         cancelConfirmationModal.toggleClass("show-modal");
-                        document.location = "client_homepage.php";
+                        //document.location = "client_homepage.php";
                     });
                 });
             });
