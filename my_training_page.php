@@ -108,8 +108,6 @@
                     array_push($unconfirmed_training_id, $row["training_id"]);
                 }
 
-                $status = "unconfirmed";
-
                 foreach ($unconfirmed_training_id as $id) {
                     $sql = "SELECT * FROM training_workshop WHERE training_id='$id'";
                     $result = $conn->query($sql);
@@ -127,7 +125,6 @@
                             echo "<p>" . $row2["training_type_name"] . "</p>";
                             echo "<p>Duration: " . $row["training_duration"] . "</p>";
                             echo "<p>Price: MYR " . $row["training_price"] . "</p>";
-                            echo "<p>" . $row["training_details"] . "</p>";
                             echo "</div>";
                             echo "</div>";        
                         }
@@ -225,8 +222,6 @@
                     array_push($confirmed_training_id, $row["training_id"]);
                 }
 
-                $status = "confirmed";
-
                 foreach ($confirmed_training_id as $id) {
                     $sql = "SELECT * FROM training_workshop WHERE training_id='$id'";
                     $result = $conn->query($sql);
@@ -244,7 +239,6 @@
                             echo "<p>" . $row2["training_type_name"] . "</p>";
                             echo "<p>Duration: " . $row["training_duration"] . "</p>";
                             echo "<p>Price: MYR " . $row["training_price"] . "</p>";
-                            echo "<p>" . $row["training_details"] . "</p>";
                             echo "</div>";
                             echo "</div>";        
                         }
@@ -269,6 +263,8 @@
             $("#openByDefault").css("font-weight", "bold");
             $("#openByDefault").css("color", "#0065ff");
 
+            document.cookie = "status=" + "unconfirmed" + "; path=/";
+
             $(".link").on("click", function() {
                 $(".content").css("display", "none");
                 var section = $(this).attr("value");
@@ -277,12 +273,17 @@
                 $(".link").css("font-weight", "normal");
                 $(".link").css("color", "black");
 
+
+                $.post("change_status.php", {current_section: section} , function(data) {
+                    document.cookie = "status=" + data + "; path=/";
+                    console.log(data);
+                });
+            
+
                 $("#" + section).css("display", "block");
                 $(this).css("border-bottom", "5px #0065ff solid");
                 $(this).css("font-weight", "bold");
                 $(this).css("color", "#0065ff");
-                
-
             });
 
             $(".training-workshop-content").hover(function() {
@@ -297,7 +298,7 @@
                 var trainingName = $(this).find("h3").text();
                 var status = "<?php echo $status ?>";
                 document.cookie = "training_name=" + trainingName + "; path=/";
-                document.cookie = "training_status=" + status + "; path=/";
+                //document.cookie = "training_status=" + status + "; path=/";
                 document.location = "training_details_page.php";
             });
             

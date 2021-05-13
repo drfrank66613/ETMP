@@ -18,8 +18,12 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<<<<<<< HEAD
     <script src="scripts/requestForm.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+=======
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+>>>>>>> 9c5f808fac74b7594f52b9998cbb01ed31804cf9
 
 </head>
 <body>
@@ -72,7 +76,7 @@
                 }
 
                 $chosen_training = $_COOKIE["training_name"];
-                $status = $_COOKIE["training_status"];
+                $status = $_COOKIE["status"];
 
                 $user_name = $_SESSION["username"];
                 $description;
@@ -216,11 +220,11 @@
                         
                         cancelModal.toggleClass("show-modal");
                         cancelConfirmationModal.toggleClass("show-modal");
-                        //document.location = "admin_homepage.php";
                     });
 
                     $(".cancel-confirmed-close-button").on("click", function() {
                         cancelConfirmationModal.toggleClass("show-modal");
+                        document.location = "client_homepage.php";
                     });
                 });
             });
@@ -324,7 +328,9 @@
 
     <script>
         $(document).ready(function() {
-            var formStatus = "<?php echo $request_form_status; ?>";
+            var formStatus = "<?php echo $request_form_status ?>";
+
+            console.log(formStatus);
 
             if (formStatus == "Confirmed") {
                 $(".itinerary-section").css("display", "block");

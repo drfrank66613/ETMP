@@ -37,6 +37,8 @@
 
         /* Should change the status of training itinerary from default to "Canceled" here */
         /* Should wait from Abeng */
+        
+
             
      }
 
