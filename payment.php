@@ -41,84 +41,86 @@
     </div>
     <!---->
     <div class="wrap">
-
       <div class="split-wrap">
-      <div class="split-left">
-        <form action="payment.php" method="POST">
+        <div class="split-left">
+          <form action="payment.php" method="POST">
 
-          <div class="fieldset-wrap">
+            <div class="fieldset-wrap">
 
-          <fieldset class="payment-wrap">
-          <div>
-            <?php  if (count($errors) > 0) : ?>
-               <div class="errors">
-    	            <?php foreach ($errors as $error) : ?>
-    	                <p><?php echo $error ?></p>
-              	<?php endforeach ?>
-               </div>
-              <?php  endif ?>
-            <div class="payment-items">
-              <label for="cardnumber">Card Number</label>
-              <input required type="text" inputmode="numeric" name="ccnumber" pattern="[0-9]*" class="payment-inputs" id="cardnumber" title="Input a valid Card">
-            </div>
-            <div class="payment-items">
-              <label for="cardowner">Name on Card</label>
-              <input required type="text" name="ccowner" class="payment-inputs" id="cardowner" title="Name should only contain letters and spaces">
-            </div>
-            <div class="inline">
-            <div class="payment-items">
-              <label for="expiry">Expiration Date</label>
-              <input required type="text" inputmode="numeric" name="ccexpiry" pattern="[0-9\/]*" class="payment-inputs" id="expiry" placeholder="(MM/YY)">
-            </div>
-            <div class="payment-items">
-              <label for="securitycode">CVV</label>
-              <input required type="text" inputmode="numeric" name="ccsecurity" pattern="[0-9]{3,4}" class="payment-inputs" id="securitycode" title="3 or 4 digits behind your card">
-            </div>
-          </div>
-
-            <div class="payment-items">
-              <button type="submit" name="submitPayment" class="button-submit" value="Submit">Pay Now</button>
-            </div>
-            <div class="payment-items">
-              <button onclick="window.location='client_homepage.php';" type="button" class="button-cancel">Cancel</button>
+            <fieldset class="payment-wrap">
+            <div>
+              <?php  if (count($errors) > 0) : ?>
+                <div class="errors">
+                    <?php foreach ($errors as $error) : ?>
+                        <p><?php echo $error ?></p>
+                  <?php endforeach ?>
+                </div>
+                <?php  endif ?>
+              <div class="payment-items">
+                <label for="cardnumber">Card Number</label>
+                <input required type="text" inputmode="numeric" name="ccnumber" pattern="[0-9]*" class="payment-inputs" id="cardnumber" title="Input a valid Card">
+              </div>
+              <div class="payment-items">
+                <label for="cardowner">Name on Card</label>
+                <input required type="text" name="ccowner" class="payment-inputs" id="cardowner" title="Name should only contain letters and spaces">
+              </div>
+              <div class="inline">
+              <div class="payment-items">
+                <label for="expiry">Expiration Date</label>
+                <input required type="text" inputmode="numeric" name="ccexpiry" pattern="[0-9\/]*" class="payment-inputs" id="expiry" placeholder="(MM/YY)">
+              </div>
+              <div class="payment-items">
+                <label for="securitycode">CVV</label>
+                <input required type="text" inputmode="numeric" name="ccsecurity" pattern="[0-9]{3,4}" class="payment-inputs" id="securitycode" title="3 or 4 digits behind your card">
+              </div>
             </div>
 
-          </div>
-          </fieldset>
-          </div>
-        </form>
+              <div class="payment-items">
+                <button type="submit" name="submitPayment" class="button-submit" value="Submit">Pay Now</button>
+              </div>
+              <div class="payment-items">
+                <button onclick="window.location='client_homepage.php';" type="button" class="button-cancel">Cancel</button>
+              </div>
 
-      </div>
-      <div class="split-right">
-        <?php
-        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-        $host = "localhost";
-        $dbUsername = "root";
-        $dbPassword = "";
-        $dbname = "etmp";
-        $conn = mysqli_connect("$host", "$dbUsername", "$dbPassword", "$dbname");
-        if ($conn->connect_error) {
-          die("Connection failed:". $conn->connect_error);
-        }
+            </div>
+            </fieldset>
+            </div>
+          </form>
 
-        $chosen_training = $_COOKIE["training_name"];
-        $query_workshop_details = "SELECT * FROM training_workshop WHERE training_name = '$chosen_training'";
-        $result = mysqli_query($conn, $query_workshop_details);
-
-        echo "<div class='checkout-container'>";
-        echo "<div class='checkout-items'>";
-        echo "<div class='image-container'>";
-        echo "<img src='images/leadership-2.jfif' class='checkout-image' alt='Leadership'>";
-        echo "</div>";
-        echo "<div class='checkout-details'>";
-        echo "<h2>Leadership and Communication</h2>";
-        echo "<p>Price: RM300</p>";
-        echo "<p>Duration: 6 hours</p>";
-        echo "</div>
         </div>
-        </div>";
-        $conn->close();?>
-      </div>
+        <div class="split-right">
+          <?php
+          mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+          $host = "localhost";
+          $dbUsername = "root";
+          $dbPassword = "";
+          $dbname = "etmp";
+          $conn = mysqli_connect("$host", "$dbUsername", "$dbPassword", "$dbname");
+          if ($conn->connect_error) {
+            die("Connection failed:". $conn->connect_error);
+          }
+
+          $chosen_training = $_COOKIE["training_name"];
+          $query_workshop_details = "SELECT * FROM training_workshop WHERE training_name = '$chosen_training'";
+          $result = mysqli_query($conn, $query_workshop_details);
+          
+          while ($row = mysqli_fetch_assoc($result)) {
+            echo "<div class='checkout-container'>";
+            echo "<div class='checkout-items'>";
+            echo "<div class='image-container'>";
+            echo "<img src='" . $row["training_image_link"] . "' class='checkout-image'>";
+            echo "</div>";
+            echo "<div class='checkout-details'>";
+            echo "<h2>" . $row["training_name"] . "</h2>";
+            echo "<p>Price: MYR ". $row["training_price"] . "</p>";
+            echo "<p>Duration: ". $row["training_duration"] . "</p>";
+            echo "</div>
+            </div>
+            </div>";
+          }
+          
+          $conn->close();?>
+        </div>
     </div>
   </div>
 

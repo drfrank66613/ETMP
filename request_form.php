@@ -26,7 +26,7 @@
     </div>
     <div class="navbar">
         <a href="client_homepage.php">Home</a>
-        <a href="#news">My Training</a>
+        <a href="my_training_page.php">My Training</a>
         <a href="client_about_page.php">About</a>
         <div class="rightnavbar">
             <a class="calendar" href="calendar_page.php"><i class="fa fa-calendar"></i></a>
