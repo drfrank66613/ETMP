@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <!--Use the title & navbar bar for all client pages-->
@@ -146,7 +148,7 @@
                     /***
                      * Right here Irwan, put in the link to your payment page
                      */
-                    //document.location = "your_payment_page.php";
+                    document.location = "payment.php";
                 });
 
                 $(".cancel-modal select").on("change", function(e) {
@@ -215,7 +217,9 @@
         </script>
     </div>
     
-    <div class="training-section">
+
+    <!-- Section for Training Itinerary only if the training workshop has been confirmed by paying the amount of money -->
+    <div class="itinerary-section">
         <div id="contain" class="container">
                 <div class="split-container">
                     <h2>Training Itinerary</h2>
@@ -306,5 +310,15 @@
                 }
             </script>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            var formStatus = "<?php echo $request_form_status; ?>";
+
+            if (formStatus == "Confirmed") {
+                $(".itinerary-section").css("display", "block");
+            }
+        });
+    </script>
 </body>
 </html>

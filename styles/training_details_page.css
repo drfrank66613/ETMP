@@ -123,6 +123,15 @@ display: block;
     padding: 2rem;
 }
 
+.itinerary-section {
+    display: none;
+    width: 85%;
+    margin: 5% auto;
+    border: 1px solid #A0ABBC;
+    border-radius: 5px;
+    padding: 2rem;
+}
+
 .training-details-section {
     display: flex;
 }
