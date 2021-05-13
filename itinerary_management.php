@@ -27,15 +27,15 @@ $query = "SELECT request_form.fname, request_form.lname, request_form.phone,
         AND training_itinerary.training_id = training_workshop.training_id";
 
 $result = mysqli_query($con, $query);
-$fname;
-$lname;
-$phone;
-$date;
-$time;
-$duration;
-$training_itinerary_id;
-$training_itinerary_status;
-$request_form_status;
+$fname = "";
+$lname = "";
+$phone = "";
+$date = "";
+$time = "";
+$duration = "";
+$training_itinerary_id = "";
+$training_itinerary_status = "";
+$request_form_status = "";
 
 foreach($result as $row){
     $fname = $row["fname"];
