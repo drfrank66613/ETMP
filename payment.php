@@ -20,13 +20,24 @@
 <body>
     <!--Use the title & navbar bar for all client pages-->
     <div class="title">
-        <img src="images/etmp_logo.png" alt="logo" style="margin-top: 1rem;">
+        <img id="logo" src="images/etmp_logo.png" alt="logo" style="margin-top: 1rem;">
+        <script>
+            document.getElementById('logo').onclick = function() {
+                <?php if($_SESSION['userLevel'] == 'Client') : ?>
+                    location.href = "client_homepage.php";
+                <?php  endif ?>
+                <?php if($_SESSION['userLevel'] == 'Admin') : ?>
+                    location.href = "admin_homepage.php";
+                <?php  endif ?>
+            }
+        </script>
         <h4 class="appdesc">ONE OF THE LARGEST TRAINING PROVIDER IN SARAWAK</h4>
     </div>
     <div class="navbar">
         <a href="client_homepage.php">Home</a>
         <a href="my_training_page.php">My Training</a>
         <a href="client_about_page.php">About</a>
+        <a class="active" href="payment.php">Payment</a>
         <div class="rightnavbar">
             <a class="calendar" href="calendar_page.php"><i class="fa fa-calendar"></i></a>
             <a class="notif" href="notification.php"><i class="fa fa-bell"></i></a>

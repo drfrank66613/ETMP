@@ -1,9 +1,9 @@
-*{
+* {
   box-sizing: border-box;
 }
 
-body{
-  font-family: 'Open Sans', sans-serif;
+body {
+  font-family: "Open Sans", sans-serif;
   font-size: 15px;
   margin: 0;
 }
@@ -112,62 +112,64 @@ body{
   display: block;
 }
 
-.form_title{
+.form_title {
   margin-left: 26%;
   color: #000;
 }
 
-form{
+form {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
 }
 
-legend{
+legend {
   color: #00a2ff;
   font-size: 28px;
   font-weight: bold;
 }
 
-fieldset{
+fieldset {
   border: 0px;
 }
 
-hr{
+hr {
   border: 1px solid #e9e9e9;
   margin-bottom: 25px;
 }
 
-.form_group{
+.form_group {
   display: flex;
 }
 
-.form_group input{
+.form_group input {
   width: 50%;
 }
 
-.form_group select{
+.form_group select {
   width: 50%;
   height: 50px;
 }
 
-.form_group input:first-child{
+.form_group input:first-child {
   margin-right: 25px;
 }
 
-.form_group select:first-child{
+.form_group select:first-child {
   margin-right: 25px;
 }
 
-.form_group button:first-child{
+.form_group button:first-child {
   margin-right: 25px;
 }
 
-.form_wrapper{
+.form_wrapper {
   position: relative;
 }
 
-.form_control, .button_submit, .button_cancel{
+.form_control,
+.button_submit,
+.button_cancel {
   border: 1px solid #333;
   border: none;
   display: block;
@@ -176,49 +178,58 @@ hr{
   padding: 15px;
   margin-bottom: 25px;
   border-radius: 4px;
-  background-color: #FFF;
+  background-color: #fff;
 }
 
-input, select{
-  font-family: 'Open Sans', sans-serif;
+input,
+select {
+  font-family: "Open Sans", sans-serif;
   box-shadow: 0px 3px 13px rgba(0, 0, 0, 0.3);
   font-size: 15px;
   background-color: #e9e9e9;
 }
 
-select{
+select {
   cursor: pointer;
 }
 
-input[type="date"], [type="time"]{
+input[type="date"],
+[type="time"] {
   cursor: pointer;
 }
 
-select option[value=""][disabled]{
+select option[value=""][disabled] {
   display: none;
 }
 
-.form_submit{
+.form_submit {
   margin-top: 30px;
 }
 
-.button_submit{
+.button_submit {
   background-color: #0065ff;
 }
 
-.button_cancel{
+.button_cancel {
   background-color: #ff5d00;
 }
 
-.button_submit, .button_cancel{
-  color: #FFF;
+.button_submit,
+.button_cancel {
+  color: #fff;
   font-weight: bold;
   font-size: 15px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   box-shadow: 0px 3px 13px rgba(0, 0, 0, 0.3);
 }
 
-.button_submit:hover, .button_cancel:hover{
+.button_submit:hover,
+.button_cancel:hover {
   opacity: 0.9;
   cursor: pointer;
+}
+
+#logo:hover {
+  cursor: pointer;
+  opacity: 50%;
 }

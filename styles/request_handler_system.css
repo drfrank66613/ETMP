@@ -1,374 +1,376 @@
 body {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 100%;
-    margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 100%;
+  margin: 0;
 }
 
 h1 {
-    color: #00a2ff;
+  color: #00a2ff;
 }
 
 /*Use styles below for the navbar*/
 .title {
-position: relative;
-margin: 15px 15px;
+  position: relative;
+  margin: 15px 15px;
 }
 
 .appname {
-color: #00a2ff;
+  color: #00a2ff;
 }
 
 .appname,
 .appdesc {
-display: inline;
+  display: inline;
 }
 
 .appdesc {
-right: 0;
-position: absolute;
-font-weight: 500;
+  right: 0;
+  position: absolute;
+  font-weight: 500;
 }
 
 [class="fa fa-sort-down"] {
-font-size: 19px;
-margin-left: 10px;
+  font-size: 19px;
+  margin-left: 10px;
 }
 
 .navbar {
-background-color: #5f5f5f;
-overflow: hidden;
+  background-color: #5f5f5f;
+  overflow: hidden;
 }
 
 .navbar a {
-float: left;
-color: #f2f2f2;
-text-align: center;
-padding: 18px 16px;
-text-decoration: none;
-font-size: 15px;
-font-weight: bold;
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 18px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .navbar a:hover {
-color: #ff9a00;
+  color: #ff9a00;
 }
 
 .navbar a.active {
-background-color: #00a2ff;
-color: white;
+  background-color: #00a2ff;
+  color: white;
 }
 
 .navbar a.active:hover {
-color: white !important;
+  color: white !important;
 }
 
 .rightnavbar {
-float: right;
+  float: right;
 }
 
 .dropdown {
-float: right;
-overflow: hidden;
+  float: right;
+  overflow: hidden;
 }
 
 .dropdown .profile {
-font-weight: bold;
-font-size: 15px;
-border: none;
-outline: none;
-color: white;
-padding: 18px 16px;
-background-color: inherit;
-font-family: inherit;
-margin: 0;
+  font-weight: bold;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 18px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
 }
 
 .dropdown:hover .profile {
-color: #ff9a00 !important;
+  color: #ff9a00 !important;
 }
 
 .dropdown-content {
-display: none;
-position: absolute;
-background-color: #f9f9f9;
-min-width: 160px;
-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-z-index: 1;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 .dropdown-content a {
-float: none;
-color: black;
-padding: 12px 20px;
-text-decoration: none;
-display: block;
-text-align: left;
+  float: none;
+  color: black;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
 }
 
 .dropdown-content a:hover {
-background-color: #ddd;
+  background-color: #ddd;
 }
 
 .dropdown:hover .dropdown-content {
-display: block;
+  display: block;
 }
 /*End of styles for navbar*/
-  
 
 /*  Request Page  */
 .search-training-section {
-    width: 85%;
-    margin: 5% auto;
-    border: 1px solid #A0ABBC;
-    border-radius: 5px;
-    padding: 2rem;
+  width: 85%;
+  margin: 5% auto;
+  border: 1px solid #a0abbc;
+  border-radius: 5px;
+  padding: 2rem;
 }
 
 .request-detail-section {
-    width: 85%;
-    margin: 5% auto;
-    border: 1px solid #A0ABBC;
-    border-radius: 5px;
-    padding: 2rem;
+  width: 85%;
+  margin: 5% auto;
+  border: 1px solid #a0abbc;
+  border-radius: 5px;
+  padding: 2rem;
 }
 
 .request-detail-section h1 {
-    margin: 0;
+  margin: 0;
 }
 
 .search-training-section h1 {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .request-detail-section h5 {
-    color: #ff9a00;
-    font-weight: bolder;
-    margin: 0;
-    padding: 0;
+  color: #ff9a00;
+  font-weight: bolder;
+  margin: 0;
+  padding: 0;
 }
 
 .training-search-bar {
-    padding: 15px 32px;
-    border: 1px solid grey;
-    width: 80%
+  padding: 15px 32px;
+  border: 1px solid grey;
+  width: 80%;
 }
 
 .search-button {
-    width: 10%;
-    padding: 15px 32px;
-    color: white;
-    border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
-    text-align: center;
-    background-color: #0065ff;
+  width: 10%;
+  padding: 15px 32px;
+  color: white;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+  text-align: center;
+  background-color: #0065ff;
 }
 
 .label-training-type {
-    display: block;
-    text-align: left;
-    color: #A0ABBC;
-    font-weight: bold;
-    margin-bottom: 0.3rem;
+  display: block;
+  text-align: left;
+  color: #a0abbc;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
 }
 
 .cancel-button {
-    background-color: red;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    padding: 15px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border: 2px solid #0065ff;
-    font-size: 1rem;
-    box-sizing: border-box;
-    cursor: pointer;
-    margin-left: auto;
-    margin-right: 0;
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: 2px solid #0065ff;
+  font-size: 1rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .container-cancel-button {
-    text-align: right;
+  text-align: right;
 }
 
 .search-training-table {
-    margin-top: 2rem;
-    width: 100%;
-    border-collapse: collapse;
+  margin-top: 2rem;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .search-training-table th {
-    width: 33.3%;
-    border-bottom: 2px solid black;
+  width: 33.3%;
+  border-bottom: 2px solid black;
 }
 
 .container-send-training-button {
-    text-align: right;
-    margin: 0;
-    margin-top: 2%;
+  text-align: right;
+  margin: 0;
+  margin-top: 2%;
 }
 
 .send-training-button {
-    background-color: #0065ff;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    padding: 15px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border: 2px solid #0065ff;
-    font-size: 1rem;
-    box-sizing: border-box;
-    cursor: pointer;
-    margin-left: auto;
-    margin-right: 0;
+  background-color: #0065ff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: 2px solid #0065ff;
+  font-size: 1rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .search-training-table tr:nth-child(1n + 2) {
-    border-bottom: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .search-training-table tr td {
-    text-align: center;
-    padding: 2rem;
+  text-align: center;
+  padding: 2rem;
 }
 
 .check-row {
-    border-bottom: none;
+  border-bottom: none;
 }
-
 
 /*** MODAL BOX SECTION ***/
 
 /* Send Training Workshops to client Modal Box */
 .send-modal {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(1.1);
-    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
 
 .modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #ff9a00;
-    padding: 1rem 1.5rem;
-    width: 40rem;
-    border-radius : 0.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ff9a00;
+  padding: 1rem 1.5rem;
+  width: 40rem;
+  border-radius: 0.5rem;
 }
 
 .send-close-button {
-    float: right;
-    text-align: center;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #696969;
+  float: right;
+  text-align: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #696969;
 }
 .send-close-button:hover {
-    color: white;
+  color: white;
 }
 
-.modal-content h2, 
+.modal-content h2,
 .modal-content h4 {
-    color:white;
-    padding-top: 1rem;
+  color: white;
+  padding-top: 1rem;
 }
 
 .modal-content h4 {
-    margin-bottom: 0.5rem;
-    margin-top: 0;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
 }
-
 
 /* Cancel Training Workshops request as operator Modal Box */
 .cancel-modal {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(1.1);
-    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
 
 .cancel-close-button {
-    float: right;
-    text-align: center;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #696969;
+  float: right;
+  text-align: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #696969;
 }
 .cancel-close-button:hover {
-    color: white;
+  color: white;
 }
 
 .confirm-button {
-    float: right;
-    padding: 0.7rem 1.4rem;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 0.25rem;
-    background-color: red;
-    border: 1px solid red;
-    color: white;
+  float: right;
+  padding: 0.7rem 1.4rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: red;
+  border: 1px solid red;
+  color: white;
 }
 
 .confirm-button-disabled {
-    float: right;
-    padding: 0.7rem 1.4rem;
-    text-align: center;
-    border-radius: 0.25rem;
-    background-color: rgb(226, 181, 181);
-    border: 1px solid rgb(226, 181, 181);
-    color: grey;
+  float: right;
+  padding: 0.7rem 1.4rem;
+  text-align: center;
+  border-radius: 0.25rem;
+  background-color: rgb(226, 181, 181);
+  border: 1px solid rgb(226, 181, 181);
+  color: grey;
 }
 
 .confirm-button:hover {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 .show-modal {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1.0);
-    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
 select {
-    width: 100%;
-    height: 50px;
-    margin-bottom: 2rem;
-    padding: 15px;
-    border-radius: 4px;
-    font-size: 17px;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 2rem;
+  padding: 15px;
+  border-radius: 4px;
+  font-size: 17px;
 }
 
 select option[value=""][disabled] {
-    display: none;
+  display: none;
 }
 
 #other-reason-section {
-    display: none;
-    margin-bottom: 2rem;
+  display: none;
+  margin-bottom: 2rem;
 }
 
 #other-reason-section textarea {
-    width: 99%;
-    height: 5rem;
-    resize: none;
+  width: 99%;
+  height: 5rem;
+  resize: none;
+}
+
+#logo:hover {
+  cursor: pointer;
+  opacity: 50%;
 }

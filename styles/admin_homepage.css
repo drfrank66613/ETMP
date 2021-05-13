@@ -112,7 +112,6 @@ body {
 }
 /*End of styles for navbar*/
 
-
 /* Module In-pages Tab */
 
 #module-tab {
@@ -140,8 +139,6 @@ body {
 .link:hover {
   color: #0065ff !important;
 }
-
-
 
 /* Home Page | Request Handler System*/
 h1 {
@@ -253,4 +250,9 @@ h1 {
   float: right;
   font-size: 28px;
   font-weight: bold;
+}
+
+#logo:hover {
+  cursor: pointer;
+  opacity: 50%;
 }

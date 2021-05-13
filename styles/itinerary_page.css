@@ -224,7 +224,7 @@ input[type="date"] {
 }
 
 .cancelbtn {
-  padding: 10px 20px; 
+  padding: 10px 20px;
   background-color: #ff5e00 !important;
 }
 
@@ -296,7 +296,11 @@ input:disabled[name="reject"] {
   border: thin solid black;
 }
 
-
 .modification_request {
   color: red;
+}
+
+#logo:hover {
+  cursor: pointer;
+  opacity: 50%;
 }

@@ -273,7 +273,7 @@ button:hover {
 
 /*General Information*/
 
-.grid{
+.grid {
   border-radius: 3px;
   padding-bottom: 6%;
   width: 80%;
@@ -293,7 +293,7 @@ button:hover {
   width: 25%;
 }
 
-.grid-item:hover{
+.grid-item:hover {
   box-shadow: 0px 14px 80px rgba(0, 101, 255, 0.5);
 }
 
@@ -301,12 +301,12 @@ button:hover {
   color: #0065ff;
 }
 /*End*/
-.courses-title{
+.courses-title {
   text-align: center;
   color: #00a2ff;
 }
 
-.card-container{
+.card-container {
   box-sizing: border-box;
   margin-bottom: 10%;
   display: flex;
@@ -315,45 +315,43 @@ button:hover {
   justify-content: center;
 }
 
-.card-item{
+.card-item {
   box-sizing: border-box;
   background-color: #00a2ff;
   margin: 25px;
   max-width: 25%;
   border-radius: 10px;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-  0 12.5px 10px rgba(0, 0, 0, 0.06),
-  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-  0 100px 80px rgba(0, 0, 0, 0.12);
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
-.card-item:hover{
+.card-item:hover {
   background-color: #ff9a00;
   box-shadow: 0 2.8px 2.2px rgba(255, 154, 0, 0.034),
-  0 6.7px 5.3px rgba(255, 154, 0, 0.048),
-  0 12.5px 10px rgba(255, 154, 0, 0.06),
-  0 22.3px 17.9px rgba(255, 154, 0, 0.072),
-  0 41.8px 33.4px rgba(255, 154, 0, 0.086),
-  0 100px 80px rgba(255, 154, 0, 0.12);
+    0 6.7px 5.3px rgba(255, 154, 0, 0.048),
+    0 12.5px 10px rgba(255, 154, 0, 0.06),
+    0 22.3px 17.9px rgba(255, 154, 0, 0.072),
+    0 41.8px 33.4px rgba(255, 154, 0, 0.086),
+    0 100px 80px rgba(255, 154, 0, 0.12);
 }
 
-.card-item a{
+.card-item a {
   display: block;
   height: 100%;
   border-radius: 10px;
   text-decoration: none;
 }
 
-.item-image{
+.item-image {
   max-height: 100%;
   max-width: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
-.item-content{
+.item-content {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
   text-align: center;
   color: white;
@@ -364,8 +362,13 @@ button:hover {
   margin: 0;
 }
 
-.wrapper{
+.wrapper {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+}
+
+#logo:hover {
+  cursor: pointer;
+  opacity: 50%;
 }

@@ -138,3 +138,8 @@ td.fc-day-top.fc-past {
 td.fc-day.fc-past {
   background-color: #eeeeee;
 }
+
+#logo:hover {
+  cursor: pointer;
+  opacity: 50%;
+}

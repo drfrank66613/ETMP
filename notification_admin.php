@@ -19,7 +19,17 @@
   <body>
     <!--Use the title & navbar bar for all admin pages-->
     <div class="title">
-        <img src="images/etmp_logo.png" alt="logo" style="margin-top: 1rem;">
+        <img id="logo" src="images/etmp_logo.png" alt="logo" style="margin-top: 1rem;">
+        <script>
+            document.getElementById('logo').onclick = function() {
+                <?php if($_SESSION['userLevel'] == 'Client') : ?>
+                    location.href = "client_homepage.php";
+                <?php  endif ?>
+                <?php if($_SESSION['userLevel'] == 'Admin') : ?>
+                    location.href = "admin_homepage.php";
+                <?php  endif ?>
+            }
+        </script>
         <h4 class="appdesc">ONE OF THE LARGEST TRAINING PROVIDER IN SARAWAK</h4>
     </div>
     <div class="navbar">

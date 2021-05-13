@@ -185,3 +185,8 @@ button:hover {
 .form-container {
   padding: 5px 16px 10px;
 }
+
+#logo:hover {
+  cursor: pointer;
+  opacity: 50%;
+}

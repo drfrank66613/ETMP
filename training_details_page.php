@@ -18,14 +18,24 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    <script src="scripts/requestForm.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 </head>
 <body>
     <!--Use the title & navbar bar for all client pages-->
     <div class="title">
-        <img src="images/etmp_logo.png" alt="logo" style="margin-top: 1rem;">
+        <img id="logo" src="images/etmp_logo.png" alt="logo" style="margin-top: 1rem;">
+        <script>
+            document.getElementById('logo').onclick = function() {
+                <?php if($_SESSION['userLevel'] == 'Client') : ?>
+                    location.href = "client_homepage.php";
+                <?php  endif ?>
+                <?php if($_SESSION['userLevel'] == 'Admin') : ?>
+                    location.href = "admin_homepage.php";
+                <?php  endif ?>
+            }
+        </script>
         <h4 class="appdesc">ONE OF THE LARGEST TRAINING PROVIDER IN SARAWAK</h4>
     </div>
     <div class="navbar">
@@ -288,6 +298,7 @@
 
                     <button onclick="closeDiv()" type="button" class="cancelbtn"><b>Cancel</b></button>
                 </form>
+                    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
                     <script type="text/javascript">
                     $(document).ready(function(){
                         $('#timepicker').timepicker({
